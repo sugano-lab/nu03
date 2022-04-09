@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<title>学生意識調査 2003</title>
+<meta name="author" content="菅野 剛"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/beige.css" id="theme"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<base target="_blank" rel="noopener">
+<style>.reveal section {font-size: 80%;}</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h2 class="title">学生意識調査 2003</h2><em>統計学</em><br><br>菅野 剛<br>
+</section>
+<section id="table-of-contents-section">
+<div id="table-of-contents" role="doc-toc">
+<h2>&#30446;&#27425;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-orga6ffa37">Abstract</a></li>
+<li><a href="#/slide-1">1. ケース、変数、尺度水準</a></li>
+<li><a href="#/slide-2">2. データ・マトリクスと度数分布</a></li>
+<li><a href="#/slide-3">3. グラフ、分布の形</a></li>
+<li><a href="#/slide-4">4. 最頻値、中央値、平均</a></li>
+<li><a href="#/slide-5">5. 範囲(レンジ)、四分位範囲</a></li>
+<li><a href="#/slide-6">6. 分散、標準偏差</a></li>
+<li><a href="#/slide-7">7. Zスコア、標準化得点</a></li>
+<li><a href="#/slide-8">8. info</a></li>
+<li><a href="#/slide-9">9. 文献</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-orga6ffa37">
+<h2 id="orga6ffa37">Abstract</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-org992f443">
+<h3 id="org992f443">Abstract</h3>
+<ul>
+<li><b>目的</b> 小さな手がかりから、大きな全体を把握。</li>
+<li><b>到達目標</b> 標本から母集団について推測するため、基本的な統計学用語が分かる。</li>
+<li><b>キーワード</b> 標本平均、標本分散、標準偏差、Z値（Zスコア, 標準化得点）
+<ul>
+<li>データに含まれる多くの数値をただ眺めていても、理解は難しいです。
+そこで、平均とばらつきの二つの数字で、データの特徴を捉えます。
+データに含まれるそれぞれの数値も、平均とばらつきの視点から、分布における相対的な値に変換できます。
+こうして求めた  <a href="https://www.soumu.go.jp/main_content/000608013.pdf#page=7">Z値</a>（Zスコア）は、後ほど、起こりやすさ（確率）という解釈につながり、便利です。</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgab02052">
+<h3 id="orgab02052">数式</h3>
+<ul>
+<li><label><input type="checkbox" id="w02v01in">\(\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i\)</label> <span id="w02v01out"></span><script>function valueChange(event){ if (w02v01in.checked){ w02v01out.innerText = '【mean 平均】';}else{ w02v01out.innerText = ''; }} let w02v01in = document.getElementById('w02v01in'); w02v01in.addEventListener('change', valueChange); let w02v01out = document.getElementById('w02v01out'); </script>
+<li><label><input type="checkbox" id="w02v02in">\(s^2=\frac{1}{n-1}\sum_{i=1}^n (x_i-\bar{x})^2\)</label> <span id="w02v02out"></span><script>function valueChange(event){ if (w02v02in.checked){ w02v02out.innerText = '【variance 分散】';}else{ w02v02out.innerText = ''; }} let w02v02in = document.getElementById('w02v02in'); w02v02in.addEventListener('change', valueChange); let w02v02out = document.getElementById('w02v02out'); </script>
+<li><label><input type="checkbox" id="w02v03in">\(s=\sqrt{s^2}\)</label> <span id="w02v03out"></span><script>function valueChange(event){ if (w02v03in.checked){ w02v03out.innerText = '【standard deviation 標準偏差】';}else{ w02v03out.innerText = ''; }} let w02v03in = document.getElementById('w02v03in'); w02v03in.addEventListener('change', valueChange); let w02v03out = document.getElementById('w02v03out'); </script>
+<li><label><input type="checkbox" id="w02v04in">\(z=\frac{x-\bar{x}}{s}\)</label> <span id="w02v04out"></span><script>function valueChange(event){ if (w02v04in.checked){ w02v04out.innerText = '【Z-score Z値, Zスコア, 標準化得点】';}else{ w02v04out.innerText = ''; }} let w02v04in = document.getElementById('w02v04in'); w02v04in.addEventListener('change', valueChange); let w02v04out = document.getElementById('w02v04out'); </script>
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org747a0fa">
+<h3 id="org747a0fa">調査概要</h3>
+<table id="orgfa6efb8" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">&#34920;1:</span> 学生意識調査2003 nu03</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">項目</th>
+<th scope="col" class="org-left">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">調査テーマ</td>
+<td class="org-left">ライフスタイル</td>
+</tr>
+
+<tr>
+<td class="org-left">実施時期</td>
+<td class="org-left">2003年</td>
+</tr>
+
+<tr>
+<td class="org-left">対象</td>
+<td class="org-left">母集団が不明瞭</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">主に、たまたま協力が得られた社会学科学生</td>
+</tr>
+
+<tr>
+<td class="org-left">調査方法</td>
+<td class="org-left">質問紙法・自記式調査法</td>
+</tr>
+
+<tr>
+<td class="org-left">標本サイズ</td>
+<td class="org-left">n=153</td>
+</tr>
+
+<tr>
+<td class="org-left">分析環境</td>
+<td class="org-left"><a href="https://ja.wikipedia.org/wiki/SAS_Institute">SAS</a> (実習において <a href="https://ja.wikipedia.org/wiki/SAS_Institute">SAS</a> を利用するようにとの指示を受けた)</td>
+</tr>
+
+<tr>
+<td class="org-left">その他</td>
+<td class="org-left">授業は朝1限、授業時PC教室でのみ <a href="https://ja.wikipedia.org/wiki/SAS_Institute">SAS</a> で分析可能</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">時間不足のため <a href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E7%AE%A1%E7%90%86%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0">CMS</a> (<a href="https://ja.wikipedia.org/wiki/Plone">Plone</a>, <a href="https://ja.wikipedia.org/wiki/Zope">Zope</a>) 立ち上げ</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">分析結果を共有、レポート作成を遠隔共同作業でしのぐ</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-org00b291c">
+<h3 id="org00b291c">注意</h3>
+<ul>
+<li>学生意識調査
+<ul>
+<li>学生目線で関心を持ちそうなこと、身近なことがら</li>
+<li>厳密さや正確さよりも、調査実習のプロセス自体が主目的</li>
+
+</ul></li>
+
+<li>注意
+<ul>
+<li>母集団が不明瞭、確率標本抽出ではない</li>
+<li>推測統計学を適用できる根拠がない</li>
+<li>確率標本抽出だとしたらと仮定、練習として利用</li>
+
+</ul></li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-org11789e8">
+<h3 id="org11789e8">調査票</h3>
+
+<div id="org9830dd1" class="figure">
+<p><img src="images/nu03questionnaire-header-594x304.png" alt="nu03questionnaire-header-594x304.png" width="720" />
+</p>
+<p><span class="figure-number">&#22259;1:  </span>調査票の一部 ( \(\LaTeX\) 組版)</p>
+</div>
+
+<ul>
+<li>A4用紙横レイアウト1枚両面に 2in1 で4ページ分印刷</li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-1">
+<h2 id="1"><span class="section-number-2">1.</span> ケース、変数、尺度水準</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-1-1">
+<h3 id="1-1"><span class="section-number-3">1.1.</span> 変数 variables</h3>
+<ul>
+<li>Q1. あなたの性別を教えてください。
+<ol>
+<li>男性</li>
+<li>女性</li>
+
+</ol></li>
+
+<li>Q1 は「性別」を尋ねる質問</li>
+<li>Q1 は「性別」という <b>変数</b> variable
+<ul>
+<li><b>変数</b> ：個人ごとに値が変わる
+<ul>
+<li>男性だったり、女性だったり</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-1-2">
+<h3 id="1-2"><span class="section-number-3">1.2.</span> 変数 variables</h3>
+<ul>
+<li>Q2. あなたの学年を教えてください。
+<ol>
+<li>1年</li>
+<li>2年</li>
+<li>3年</li>
+<li>4年</li>
+
+</ol></li>
+
+<li>Q2 は「学年」を尋ねる質問</li>
+<li>Q2 は「学年」という <b>変数</b> variable
+<ul>
+<li><b>変数</b> ：個人ごとに値が変わる
+<ul>
+<li>1年だったり、2年だったり</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-1-3">
+<h3 id="1-3"><span class="section-number-3">1.3.</span> ケース cases</h3>
+<ul>
+<li>回答やデータの単位を <b>ケース</b> という</li>
+<li>社会調査では、回答者一人一人が <b>ケース</b>
+<ol>
+<li>ケース1：Aさんが、男性、2年と回答</li>
+<li>ケース2：Bさんが、男性、4年と回答</li>
+<li>ケース3：Cさんが、男性、2年と回答</li>
+
+</ol></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-1-4">
+<h3 id="1-4"><span class="section-number-3">1.4.</span> ケース cases</h3>
+<ul>
+<li>野球チームの統計では、チームが <b>ケース</b>
+<ol>
+<li>ケース1：巨人の優勝回数は&#x2026;</li>
+<li>ケース2：阪神の優勝回数は&#x2026;</li>
+
+</ol></li>
+
+<li>都道府県別の統計では、県が <b>ケース</b></li>
+
+<li>国別の統計では、国が <b>ケース</b></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-1-5">
+<h3 id="1-5"><span class="section-number-3">1.5.</span> 尺度水準 levels of measuremnt</h3>
+<ul>
+<li><b>変数</b> の <b>尺度水準</b> によって、分析法が変わるので、重要</li>
+
+<li><b>カテゴリカル変数</b> categorical variables
+<ul>
+<li><a href="https://www.stat.go.jp/teacher/dl/pdf/c4learn/materials/fourth/dai1.pdf#page=13">名義尺度</a> (nominal scale)</li>
+<li><a href="https://www.stat.go.jp/teacher/dl/pdf/c4learn/materials/fourth/dai1.pdf#page=13">順序尺度</a> (ordinal scale)</li>
+
+</ul></li>
+
+<li><b>量的変数</b> quantitative variables
+<ul>
+<li><a href="https://www.stat.go.jp/teacher/dl/pdf/c4learn/materials/fourth/dai1.pdf#page=13">間隔尺度</a> (interval scale)</li>
+<li><a href="https://www.stat.go.jp/teacher/dl/pdf/c4learn/materials/fourth/dai1.pdf#page=13">比率尺度</a> (ratio scale)</li>
+
+</ul></li>
+
+</ul>
+
+<ul>
+<li>違いの区分、順序がある、加減ができる、乗除ができる</li>
+<li>社会調査では、 <b>名義尺度</b> と <b>順序尺度</b> の変数が多い
+<ul>
+<li>順序尺度を間隔尺度とみなしての分析も多い</li>
+
+</ul></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-1-6">
+<h3 id="1-6"><span class="section-number-3">1.6.</span> 量的変数の種類</h3>
+<ul>
+<li>量的変数 quantitative variables
+<ul>
+<li>離散変数 (discrete variable)
+<ul>
+<li>整数の値をとる</li>
+
+</ul></li>
+<li>連続変数 (continuous variable)
+<ul>
+<li>小数の値もとる</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-1-7">
+<h3 id="1-7"><span class="section-number-3">1.7.</span> 名義尺度 nominal</h3>
+<ul>
+<li>違いの区分のみの情報をもつ
+<ul>
+<li>順番に意味がない</li>
+<li><b>代表値</b> は、 <b>最頻値</b></li>
+
+</ul></li>
+
+<li>Q1. あなたの性別を教えてください。
+<ol>
+<li>男性 ←</li>
+<li>女性</li>
+
+</ol></li>
+
+<li>Q1. あなたの性別を教えてください。
+<ol>
+<li>女性</li>
+<li>男性 ←</li>
+
+</ol></li>
+
+<li>男女に割り振る数値が逆でも、意味は変わらない
+<ul>
+<li>数値は、区分の違いのためだけに使われる</li>
+<li>1.男性 + 2.女性 = 3. ?? という計算は無理</li>
+
+</ul></li>
+
+<li>関西、関東といった地域区分など</li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-1-8">
+<h3 id="1-8"><span class="section-number-3">1.8.</span> 順序尺度 ordinal</h3>
+<ul>
+<li><b>順序</b> に意味がある
+<ul>
+<li><b>順序</b> を変えると、情報がおかしくなる</li>
+<li><b>代表値</b> は、 <b>中央値</b></li>
+
+</ul></li>
+
+<li>Q2. あなたの学年を教えてください。
+<ol>
+<li>1年</li>
+<li>2年</li>
+<li>3年</li>
+<li>4年</li>
+
+</ol></li>
+
+<li><b>順序</b> に加え、計算ができると <b>間隔尺度</b>
+<ul>
+<li>ただし、大学1年 + 大学3年 = 大学4年 とはならない</li>
+<li>年月は計算できるが、学年は、間隔尺度ではない</li>
+
+</ul></li>
+
+<li>社会調査では、順序尺度を間隔尺度とみなす分析も多い</li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-1-9">
+<h3 id="1-9"><span class="section-number-3">1.9.</span> 間隔尺度 interval</h3>
+<ul>
+<li><b>順序</b> に加え、足し算・引き算ができると <b>間隔尺度</b>
+<ul>
+<li><b>代表値</b> は、 <b>算術平均</b></li>
+
+</ul></li>
+<li>よく紹介される例として、摂氏(C)や華氏(F)の温度
+<ul>
+<li>冬、10度</li>
+<li>春、20度は、10度より10度高くなった</li>
+<li>夏、30度は、20度より10度高くなった</li>
+
+</ul></li>
+
+<li>0に意味があり、かけ算割り算ができると <b>比率尺度</b>
+<ul>
+<li>温度 0度は人間が恣意的に割り振ったもの</li>
+<li>10度の2倍が20度、という計算はできない</li>
+
+</ul></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-1-10">
+<h3 id="1-10"><span class="section-number-3">1.10.</span> 比率尺度 ratio</h3>
+<ul>
+<li>0 に意味があり、かけ算割り算ができると <b>比率尺度</b>
+<ul>
+<li><b>代表値</b> は、 <b>算術平均</b> 、 <b>幾何平均</b> 、 <b>調和平均</b></li>
+<li>絶対温度(K) は、絶対0度(熱振動停止)に意味がある</li>
+<li>長さ、重さ、密度、時間、年齢、年収、来場者数</li>
+
+</ul></li>
+
+<li>Q16. 睡眠について伺います。あなたは大体どのくらい寝ますか?
+<ul>
+<li>1日に平均____時間</li>
+
+</ul></li>
+
+<li>Q24. 趣味や好きなことのために自由に使える、一ヶ月あたりのお金の金額はどのくらいですか?
+<ul>
+<li>_______円ぐらい</li>
+
+</ul></li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2.</span> データ・マトリクスと度数分布</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-2-1">
+<h3 id="2-1"><span class="section-number-3">2.1.</span> データ・マトリクス data matrix</h3>
+<table id="orgc56afc3" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">&#34920;2:</span> 数値データ</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">q01</th>
+<th scope="col" class="org-right">q02</th>
+<th scope="col" class="org-left">\(\cdots\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">1</td>
+<td class="org-right">4</td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">\(\vdots\)</td>
+<td class="org-right">\(\vdots\)</td>
+<td class="org-right">\(\vdots\)</td>
+<td class="org-left">\(\vdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">153</td>
+<td class="org-right">1</td>
+<td class="org-right">3</td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>153人が 111 <b>変数</b> に回答、 153×111=16983 もの数字</li>
+<li>回答者の <b>ケース</b> 1〜153 が、1行ずつ積み重なっている</li>
+<li><b>変数</b> が、q01 から順に1列ずつ 111 <b>変数</b> 分並んでいる</li>
+<li>膨大な数字を見ても意味不明</li>
+<li><b>変数</b> ごとに <b>代表値</b> や <b>ばらつき</b> を計算し特徴を把握</li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-2-2">
+<h3 id="2-2"><span class="section-number-3">2.2.</span> データのラベル化</h3>
+<table id="org7ee2852" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">&#34920;3:</span> ラベル化</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">性別</th>
+<th scope="col" class="org-left">学年</th>
+<th scope="col" class="org-left">\(\cdots\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">男性</td>
+<td class="org-left">2年</td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">男性</td>
+<td class="org-left">4年</td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">男性</td>
+<td class="org-left">2年</td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">\(\vdots\)</td>
+<td class="org-left">\(\vdots\)</td>
+<td class="org-left">\(\vdots\)</td>
+<td class="org-left">\(\vdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">153</td>
+<td class="org-left">男性</td>
+<td class="org-left">3年</td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li>153人の <b>ケース</b> が 111 <b>変数</b> に回答</li>
+<li><b>ケース</b> ごとに、 <b>変数</b> の値が並ぶ
+<ul>
+<li><b>ケース</b> 1の回答者は、性別は男性で、学年は2年で &#x2026;</li>
+<li><b>ケース</b> 2の回答者は、性別は男性で、学年は4年で &#x2026;</li>
+<li><b>ケース</b> 3の回答者は、性別は男性で、学年は2年で &#x2026;</li>
+
+</ul></li>
+
+</ul>
+
+
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3.</span> グラフ、分布の形</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-3-1">
+<h3 id="3-1"><span class="section-number-3">3.1.</span> 名義尺度 Q01 性別</h3>
+<ul>
+<li>nu03 データの Q01 性別</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-R">table(nu03$Q01)
+prop.table(table(nu03$Q01))
+</pre>
+</div>
+
+<pre class="example">
+
+男性 女性 
+  91   62
+
+     男性      女性 
+0.5947712 0.4052288
+</pre>
+
+
+
+
+
+<div class="org-src-container">
+
+<pre class="src src-R">addmargins(table(nu03$Q01))
+addmargins(prop.table(table(nu03$Q01)))
+</pre>
+</div>
+
+<pre class="example">
+
+男性 女性  Sum 
+  91   62  153
+
+     男性      女性       Sum 
+0.5947712 0.4052288 1.0000000
+</pre>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-3-2">
+<h3 id="3-2"><span class="section-number-3">3.2.</span> 名義尺度 Q01 性別</h3>
+<div class="org-src-container">
+
+<pre class="src src-R"><span style="color: #8470ff; font-weight: bold;">par</span>(family = <span style="color: #ffc1c1;">"HiraKakuProN-W3"</span>) <span style="color: #fa8072;">## </span><span style="color: #ff7f24; font-style: italic;">&#8592; Windows&#12391;&#12399;&#23455;&#34892;&#12375;&#12394;&#12356;</span>
+pie(table(nu03$Q01), main = <span style="color: #ffc1c1;">"Q01 &#24615;&#21029; &#12398;&#20870;&#12464;&#12521;&#12501;"</span>)
+</pre>
+</div>
+
+
+<div id="org5d3c9ca" class="figure">
+<p><img src="figures/nu03-bs01-reveal-R-pie-Q01.png" alt="nu03-bs01-reveal-R-pie-Q01.png" width="480" />
+</p>
+<p><span class="figure-number">&#22259;2:  </span>Q01 性別 の円グラフ</p>
+</div>
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-3-3">
+<h3 id="3-3"><span class="section-number-3">3.3.</span> 名義尺度 Q01 性別</h3>
+<div class="org-src-container">
+
+<pre class="src src-R"><span style="color: #8470ff; font-weight: bold;">par</span>(family = <span style="color: #ffc1c1;">"HiraKakuProN-W3"</span>) <span style="color: #fa8072;">## </span><span style="color: #ff7f24; font-style: italic;">&#8592; Windows&#12391;&#12399;&#23455;&#34892;&#12375;&#12394;&#12356;</span>
+barplot(table(nu03$Q01), main = <span style="color: #ffc1c1;">"Q01 &#24615;&#21029; &#12398;&#26834;&#12464;&#12521;&#12501;"</span>)
+</pre>
+</div>
+
+
+<div id="org0af6c77" class="figure">
+<p><img src="figures/nu03-bs01-reveal-R-barplot-Q01.png" alt="nu03-bs01-reveal-R-barplot-Q01.png" width="480" />
+</p>
+<p><span class="figure-number">&#22259;3:  </span>Q01 性別 の棒グラフ</p>
+</div>
+
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-3-4">
+<h3 id="3-4"><span class="section-number-3">3.4.</span> 名義尺度 Q01 性別</h3>
+<div class="org-src-container">
+
+<pre class="src src-R">Hmisc::describe(nu03$Q01)
+</pre>
+</div>
+
+<pre class="example">
+nu03$Q01 : 性別 
+       n  missing distinct 
+     153        0        2 
+                          
+Value         男性    女性
+Frequency     91      62  
+Proportion 0.595   0.405
+</pre>
+
+
+</section>
+</section>
+<section>
+<section id="slide-3-5">
+<h3 id="3-5"><span class="section-number-3">3.5.</span> 名義尺度</h3>
+<div class="org-src-container">
+
+<pre class="src src-R">names(nu03)
+</pre>
+</div>
+
+<pre class="example" id="org943bc1f">
+  [1] "id"      "q01"     "q02"     "q03.1"   "q03.2"   "q03.3"   "q03.4"  
+  [8] "q03.5"   "q03.6"   "q03.7"   "q03.8"   "q03.9"   "q03.10"  "q03.11" 
+ [15] "q03.12"  "q04"     "q05"     "q06"     "q07a"    "q07b"    "q07c"   
+ [22] "q07d"    "q07e"    "q07f"    "q07g"    "q07h"    "q07i"    "q08.1"  
+ [29] "q08.2"   "q08.3"   "q08.4"   "q08.5"   "q08.6"   "q08.7"   "q08.8"  
+ [36] "q08.9"   "q08.10"  "q08.11"  "q08.12"  "q08.13"  "q08.14"  "q08.15" 
+ [43] "q08.16"  "q08.17"  "q09"     "q10"     "q11"     "q12"     "q13"    
+ [50] "q14"     "q15"     "q16"     "q17"     "q18a"    "q18b"    "q18c"   
+ [57] "q18d"    "q18e"    "q19a"    "q19b"    "q19c"    "q20a"    "q20b"   
+ [64] "q20c"    "q20d"    "q21a"    "q21b.1"  "q21b.2"  "q21b.3"  "q21b.4" 
+ [71] "q21b.5"  "q21b.6"  "q21b.7"  "q21b.8"  "q21c.1"  "q21c.2"  "q21c.3" 
+ [78] "q21c.4"  "q21c.5"  "q21c.6"  "q21c.7"  "q21c.8"  "q21c.9"  "q21c.10"
+ [85] "q22a"    "q22b"    "q22c"    "q22d"    "q22e"    "q23a"    "q23b"   
+ [92] "q23c"    "q23d"    "q23e"    "q23f"    "q23g"    "q24"     "Q09"    
+ [99] "Q07a"    "c2.q02"  "sq03"    "c3.sq03" "chiiki"  "kantou"  "c2.q07a"
+[106] "c2.q07b" "c2.q07c" "D02"     "Q01"     "Q02"     "d02"
+</pre>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-3-6">
+<h3 id="3-6"><span class="section-number-3">3.6.</span> 順序尺度 Q06 通学時間</h3>
+<ul>
+<li>Q06. 通学時間(片道)はどのくらいですか？
+
+<ol>
+<li>30分未満</li>
+<li>30分〜1時間未満</li>
+<li>1時間〜1時間半未満</li>
+<li>1時間半〜2時間未満</li>
+<li>2時間以上</li>
+
+</ol></li>
+
+</ul>
+
+
+<div class="org-src-container">
+
+<pre class="src src-R">table(nu03$q06)
+</pre>
+</div>
+
+<pre class="example">
+
+ 1  2  3  4  5 
+29 38 42 31 13
+</pre>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-3-7">
+<h3 id="3-7"><span class="section-number-3">3.7.</span> 順序尺度 Q07a 本を読む</h3>
+<ul>
+<li>Q07. あなたは、以下の過ごし方をどの程度しますか？
+a. 本を読む
+
+<ol>
+<li>ほぼ毎日</li>
+<li>最低一週1回</li>
+<li>最低一月1回</li>
+<li>たまにする</li>
+<li>しない</li>
+
+</ol></li>
+
+</ul>
+
+
+<div class="org-src-container">
+
+<pre class="src src-R">head(subset(nu03, , c(Q01, Q02, Q07a)))
+</pre>
+</div>
+
+<pre class="example">
+   Q01 Q02       Q07a
+1 男性 2年 たまにする
+2 男性 4年   ほぼ毎日
+3 男性 2年  最低月1回
+4 男性 2年  最低週1回
+5 女性 2年   ほぼ毎日
+6 女性 2年  最低週1回
+</pre>
+
+
+</section>
+</section>
+<section>
+<section id="slide-3-8">
+<h3 id="3-8"><span class="section-number-3">3.8.</span> Q07a</h3>
+<div class="org-src-container">
+
+<pre class="src src-R">head(nu03$Q07a) <span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">head() &#12391;&#26368;&#21021;&#12398; 6 &#12458;&#12502;&#12470;&#12505;&#12540;&#12471;&#12519;&#12531;&#12434;&#34920;&#31034;</span>
+</pre>
+</div>
+
+<pre class="example">
+[1] たまにする ほぼ毎日   最低月1回  最低週1回  ほぼ毎日   最低週1回 
+Levels: ほぼ毎日 最低週1回 最低月1回 たまにする しない
+</pre>
+
+
+
+<div class="org-src-container">
+
+<pre class="src src-R">table(nu03$Q07a)
+</pre>
+</div>
+
+<pre class="example">
+
+ほぼ毎日  最低週1回  最低月1回 たまにする     しない 
+      40         30         13         52         17
+</pre>
+
+
+
+<div class="org-src-container">
+
+<pre class="src src-R">round(prop.table(table(nu03$Q07a)), 2) <span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">&#21106;&#21512;&#12434;&#35336;&#31639;</span>
+</pre>
+</div>
+
+<pre class="example">
+
+ほぼ毎日  最低週1回  最低月1回 たまにする     しない 
+    0.26       0.20       0.09       0.34       0.11
+</pre>
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-3-9">
+<h3 id="3-9"><span class="section-number-3">3.9.</span> Q07a 本を読む 円グラフ</h3>
+<div class="org-src-container">
+
+<pre class="src src-R"><span style="color: #8470ff; font-weight: bold;">par</span>(family = <span style="color: #ffc1c1;">"HiraKakuProN-W3"</span>) <span style="color: #fa8072;">## </span><span style="color: #ff7f24; font-style: italic;">&#8592; Windows&#12391;&#12399;&#23455;&#34892;&#12375;&#12394;&#12356;</span>
+pie(table(nu03$Q07a), main = <span style="color: #ffc1c1;">"Q07a &#26412;&#12434;&#35501;&#12416; &#20870;&#12464;&#12521;&#12501;"</span>)
+</pre>
+</div>
+
+
+<div id="orgcbcb567" class="figure">
+<p><img src="figures/nu03-bs01-reveal-R-pie-Q07a.png" alt="nu03-bs01-reveal-R-pie-Q07a.png" width="480" />
+</p>
+<p><span class="figure-number">&#22259;4:  </span>Q07a 本を読む 円グラフ</p>
+</div>
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-3-10">
+<h3 id="3-10"><span class="section-number-3">3.10.</span> Q07a 本を読む 棒グラフ</h3>
+<div class="org-src-container">
+
+<pre class="src src-R"><span style="color: #8470ff; font-weight: bold;">par</span>(family = <span style="color: #ffc1c1;">"HiraKakuProN-W3"</span>) <span style="color: #fa8072;">## </span><span style="color: #ff7f24; font-style: italic;">&#8592; Windows&#12391;&#12399;&#23455;&#34892;&#12375;&#12394;&#12356;</span>
+barplot(table(nu03$Q07a), main = <span style="color: #ffc1c1;">"Q07a &#26412;&#12434;&#35501;&#12416; &#26834;&#12464;&#12521;&#12501;"</span>)
+</pre>
+</div>
+
+
+<div id="org5288f6c" class="figure">
+<p><img src="figures/nu03-bs01-reveal-R-barplot-Q07a.png" alt="nu03-bs01-reveal-R-barplot-Q07a.png" width="480" />
+</p>
+<p><span class="figure-number">&#22259;5:  </span>Q07a 本を読む 棒グラフ</p>
+</div>
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-3-11">
+<h3 id="3-11"><span class="section-number-3">3.11.</span> 比率尺度 q16 睡眠時間</h3>
+<div style="font-size: 70%;">
+<table id="orgdaef9fb" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">&#34920;4:</span> データ</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">Q01 性別</th>
+<th scope="col" class="org-right">q16 睡眠時間</th>
+<th scope="col" class="org-left">\(\cdots\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">男性</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">男性</td>
+<td class="org-right">8</td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">男性</td>
+<td class="org-right">4</td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">\(\vdots\)</td>
+<td class="org-left">\(\vdots\)</td>
+<td class="org-right">\(\vdots\)</td>
+<td class="org-left">\(\vdots\)</td>
+</tr>
+
+<tr>
+<td class="org-right">153</td>
+<td class="org-left">男性</td>
+<td class="org-right">5</td>
+<td class="org-left">\(\cdots\)</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-3-12">
+<h3 id="3-12"><span class="section-number-3">3.12.</span> 比率尺度 q16 睡眠時間</h3>
+<div class="org-src-container">
+
+<pre class="src src-R">summary(nu03$q16)
+</pre>
+</div>
+
+<pre class="example">
+ Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+1.000   6.000   6.000   6.257   7.000  10.000       1
+</pre>
+
+
+
+<table id="org7951b56" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">&#34920;5:</span> nu03 データの q16 睡眠時間</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">統計量</th>
+<th scope="col" class="org-left">英語</th>
+<th scope="col" class="org-right">値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">最小値</td>
+<td class="org-left">Minimum</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">第１四分位数</td>
+<td class="org-left">1st Quantile</td>
+<td class="org-right">6.000</td>
+</tr>
+
+<tr>
+<td class="org-left">中央値</td>
+<td class="org-left">Median</td>
+<td class="org-right">6.000</td>
+</tr>
+
+<tr>
+<td class="org-left">(算術)平均</td>
+<td class="org-left">Mean</td>
+<td class="org-right">6.257</td>
+</tr>
+
+<tr>
+<td class="org-left">第３四分位数</td>
+<td class="org-left">3rd Quantile</td>
+<td class="org-right">7.000</td>
+</tr>
+
+<tr>
+<td class="org-left">最大値</td>
+<td class="org-left">Maximum</td>
+<td class="org-right">10.000</td>
+</tr>
+
+<tr>
+<td class="org-left">欠測値</td>
+<td class="org-left">NA's</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-3-13">
+<h3 id="3-13"><span class="section-number-3">3.13.</span> 比率尺度 q16 睡眠時間</h3>
+<div class="org-src-container">
+
+<pre class="src src-R">Hmisc::describe(nu03$q16)
+</pre>
+</div>
+
+<pre class="example">
+nu03$q16 : 睡眠時間 
+       n  missing distinct     Info     Mean      Gmd      .05      .10      .25      .50      .75      .90      .95 
+     152        1       10    0.906    6.257    1.293     4.55     5.00     6.00     6.00     7.00     8.00     8.00 
+
+lowest :  1  2  3  4  5, highest:  6  7  8  9 10
+                                                                      
+Value          1     2     3     4     5     6     7     8     9    10
+Frequency      1     1     2     4    22    64    38    16     2     2
+Proportion 0.007 0.007 0.013 0.026 0.145 0.421 0.250 0.105 0.013 0.013
+</pre>
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-3-14">
+<h3 id="3-14"><span class="section-number-3">3.14.</span> 比率尺度 q16 睡眠時間</h3>
+<div class="org-src-container">
+
+<pre class="src src-R"><span style="color: #8470ff; font-weight: bold;">par</span>(family = <span style="color: #ffc1c1;">"HiraKakuProN-W3"</span>) <span style="color: #fa8072;">## </span><span style="color: #ff7f24; font-style: italic;">&#8592; Windows&#12391;&#12399;&#23455;&#34892;&#12375;&#12394;&#12356;</span>
+hist(nu03$q16, main = <span style="color: #ffc1c1;">"q16 &#30561;&#30496;&#26178;&#38291; &#12498;&#12473;&#12488;&#12464;&#12521;&#12512;"</span>)
+</pre>
+</div>
+
+
+<div id="orge0dc285" class="figure">
+<p><img src="figures/nu03-bs01-reveal-R-hist-q16.png" alt="nu03-bs01-reveal-R-hist-q16.png" width="480" />
+</p>
+<p><span class="figure-number">&#22259;6:  </span>q16 睡眠時間 ヒストグラム</p>
+</div>
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-3-15">
+<h3 id="3-15"><span class="section-number-3">3.15.</span> 比率尺度 q16 睡眠時間</h3>
+<div class="org-src-container">
+
+<pre class="src src-R"><span style="color: #8470ff; font-weight: bold;">par</span>(family = <span style="color: #ffc1c1;">"HiraKakuProN-W3"</span>) <span style="color: #fa8072;">## </span><span style="color: #ff7f24; font-style: italic;">&#8592; Windows&#12391;&#12399;&#23455;&#34892;&#12375;&#12394;&#12356;</span>
+boxplot(nu03$q16, main = <span style="color: #ffc1c1;">"q16 &#30561;&#30496;&#26178;&#38291; &#12398;&#31665;&#12402;&#12370;&#22259;"</span>, sub = <span style="color: #ffc1c1;">"&#26368;&#30701;&#12363;&#12425; 1,2,3,3&#26178;&#38291;"</span>)
+</pre>
+</div>
+
+
+<div id="org7b15bd4" class="figure">
+<p><img src="figures/nu03-bs01-reveal-R-boxplot-q16.png" alt="nu03-bs01-reveal-R-boxplot-q16.png" width="480" />
+</p>
+<p><span class="figure-number">&#22259;7:  </span>q16 睡眠時間 の箱ひげ図</p>
+</div>
+
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-3-16">
+<h3 id="3-16"><span class="section-number-3">3.16.</span> 議論</h3>
+<ul>
+<li>q16 あなたは大体どのくらい寝ますか? 1日に平均____時間
+<ul>
+<li>睡眠時間 で 1,2,3,3,4,4,4,4時間という回答
+<ul>
+<li>実際に 1〜3時間かもしれない</li>
+<li>記入ミスや不正確な回答かもしれない</li>
+<li>外れ値として除外するか慎重に検討</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4.</span> 最頻値、中央値、平均</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-4-1">
+<h3 id="4-1"><span class="section-number-3">4.1.</span> 最頻値 mode</h3>
+<ul>
+<li><a href="https://www.stat.go.jp/teacher/glossary-sa-sa.html#mode">最頻値・モード</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=104">cf.</a> (Mode)</li>
+<li>名義尺度や順序尺度で <b>最</b> も <b>頻</b> 度が大きな値カテゴリ</li>
+
+</ul>
+
+
+<div class="org-src-container">
+
+<pre class="src src-R"><span style="color: #8470ff; font-weight: bold;">options</span>(width=80, scipen=100) <span style="color: #fa8072;">## </span><span style="color: #ff7f24; font-style: italic;">digits=3</span>
+nu03$Q01 <span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">&#12487;&#12540;&#12479;&#21517;$&#22793;&#25968;&#21517; &#12392;&#12375;&#12390;&#20516;&#12434;&#20840;&#12390;&#20986;&#21147;</span>
+</pre>
+</div>
+
+<pre class="example">
+性別 
+  [1] 男性 男性 男性 男性 女性 女性 女性 男性 男性 男性 男性 男性 女性 男性 女性 女性 男性 男性 男性 男性 男性 女性 女性 男性 男性 男性 男性 男性 男性 男性 男性 男性 男性 男性 女性
+ [36] 男性 男性 男性 男性 女性 女性 女性 男性 女性 女性 男性 男性 男性 女性 女性 男性 男性 女性 女性 女性 女性 男性 女性 女性 女性 女性 男性 女性 女性 女性 男性 男性 女性 女性 男性
+ [71] 女性 女性 男性 女性 女性 男性 男性 男性 男性 女性 女性 男性 男性 男性 女性 男性 女性 男性 女性 女性 女性 女性 男性 男性 女性 男性 男性 男性 女性 男性 男性 男性 男性 女性 男性
+[106] 男性 女性 女性 女性 女性 男性 男性 男性 女性 男性 男性 女性 男性 男性 女性 男性 男性 女性 男性 男性 女性 女性 男性 女性 男性 男性 男性 男性 男性 男性 男性 女性 男性 男性 女性
+[141] 男性 男性 女性 女性 男性 男性 女性 女性 男性 男性 女性 男性 男性
+Levels: 男性 女性
+</pre>
+
+
+
+<div class="org-src-container">
+
+<pre class="src src-R">length(nu03$Q01) <span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">length() &#12391;&#12487;&#12540;&#12479;&#12398;&#12469;&#12452;&#12474;&#12434;&#35519;&#12409;&#12427;</span>
+</pre>
+</div>
+
+<pre class="example">
+[1] 153
+</pre>
+
+
+
+<div class="org-src-container">
+
+<pre class="src src-R">table(nu03$Q01) <span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">table() &#38306;&#25968;&#12391;&#24230;&#25968;&#20998;&#24067;&#12434;&#20316;&#25104;</span>
+</pre>
+</div>
+
+<pre class="example">
+
+男性 女性 
+  91   62
+</pre>
+
+
+
+<ul>
+<li>この場合、 <b>最頻値</b> は「男性」</li>
+
+</ul>
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-4-2">
+<h3 id="4-2"><span class="section-number-3">4.2.</span> 中央値 median</h3>
+<ul>
+<li><a href="https://www.stat.go.jp/teacher/glossary-ta-ti.html#median">中央値・メディアン</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=19">cf.</a> (Median)</li>
+<li>R では <code>median()</code></li>
+
+<li>順序尺度での <b>代表値</b></li>
+
+</ul>
+
+
+<div class="org-src-container">
+
+<pre class="src src-R">label(nu03$q21a)
+summary(nu03$q21a)
+</pre>
+</div>
+
+<pre class="example">
+[1] "ストレス：頻度"
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   1.000   2.000   2.366   3.000   5.000
+</pre>
+
+
+
+<ul>
+<li><b>中央値</b> Median は 2</li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-4-3">
+<h3 id="4-3"><span class="section-number-3">4.3.</span> 平均 mean</h3>
+<ul>
+<li>総和記号 (シグマ) (summation) \(\sum\)
+<ul>
+<li>R では <code>sum()</code></li>
+
+</ul></li>
+
+<li><a href="https://www.stat.go.jp/teacher/glossary-ha-he.html#average">平均 (エックス・バー)</a> (mean) \(\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i\)
+<ul>
+<li>R では <code>mean()</code></li>
+
+</ul></li>
+
+</ul>
+
+
+<div class="org-src-container">
+
+<pre class="src src-R">head(nu03$q16) <span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">head() &#26368;&#21021;&#12398; 6 &#12458;&#12502;&#12470;&#12540;&#12409;&#12471;&#12519;&#12531;&#12434;&#34920;&#31034;</span>
+</pre>
+</div>
+
+<pre class="example">
+睡眠時間 
+[1] NA  8  4  6  6  6
+</pre>
+
+
+
+<div class="org-src-container">
+
+<pre class="src src-R">mean(nu03$q16) <span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">&#27424;&#28204;&#20516; (NA) &#12364;&#21547;&#12414;&#12428;&#12390;&#12356;&#12427;&#12392;&#12289;&#35336;&#31639;&#19981;&#21487;</span>
+</pre>
+</div>
+
+<pre class="example">
+[1] NA
+</pre>
+
+
+
+<div class="org-src-container">
+
+<pre class="src src-R">mean(nu03$q16, na.rm = <span style="color: #63b8ff;">TRUE</span>) <span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">&#27424;&#28204;&#20516; (NA) &#12434;&#38500;&#22806; (ReMove) &#12375;&#12390;&#12289;&#24179;&#22343;&#12434;&#35336;&#31639;</span>
+</pre>
+</div>
+
+<pre class="example">
+[1] 6.256579
+</pre>
+
+
+<ul>
+<li>平均睡眠時間は 6.25時間、6時間15分ほど</li>
+
+</ul>
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5.</span> 範囲(レンジ)、四分位範囲</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-5-1">
+<h3 id="5-1"><span class="section-number-3">5.1.</span> 範囲(レンジ) range</h3>
+<ul>
+<li><a href="https://www.stat.go.jp/teacher/glossary-ha-ha.html#range">範囲・レンジ</a> (range)</li>
+<li>ばらつきとして、 <b>最大値</b> と <b>最小値</b> の幅
+<ul>
+<li>２つの数値だけから求まるので、計算が楽</li>
+<li>裏返せば、豊富なデータから２つの情報しか使っていない</li>
+
+</ul></li>
+
+<li>R では  <code>range()</code> , <code>min()</code> , <code>max()</code></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-5-2">
+<h3 id="5-2"><span class="section-number-3">5.2.</span> 四分位範囲 IQR</h3>
+<ul>
+<li><a href="https://www.stat.go.jp/teacher/glossary-sa-si.html#quartile-points">四分位数</a> (quartile points)</li>
+<li>データを小さい値から大きな値へ並び替え</li>
+<li>データを４等分すると、３つの区切りができる
+<ol>
+<li><b>第１四分位数</b></li>
+<li><b>第２四分位数</b> = <b>中央値</b></li>
+<li><b>第３四分位数</b></li>
+
+</ol></li>
+
+<li><a href="https://www.stat.go.jp/teacher/glossary-sa-si.html#quartile-range">四分位範囲</a> (IQR:interquartile range)
+<ul>
+<li>ばらつきとして、 <b>第３四分位数</b> - <b>第１四分位数</b> の幅</li>
+
+</ul></li>
+
+<li>R では <code>IQR()</code></li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-5-3">
+<h3 id="5-3"><span class="section-number-3">5.3.</span> 箱ひげ図 boxplot</h3>
+<ul>
+<li><a href="https://www.stat.go.jp/teacher/glossary-ha-ha.html#box-and-whisker-plot">箱ひげ図・ボックスプロット</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=14">cf.</a> (boxplot)</li>
+
+<li><b>四分位数</b> 、 <b>最大値</b> 、 <b>最小値</b> 、 <b>外れ値</b> をプロット
+<ul>
+<li><b>第１四分位数</b> と <b>第３四分位数</b> で、箱を描く</li>
+<li><b>ヒストグラム</b> に比べ、分布の特徴を把握しやすい</li>
+
+</ul></li>
+
+<li>R では <code>boxplot()</code></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6.</span> 分散、標準偏差</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-6-1">
+<h3 id="6-1"><span class="section-number-3">6.1.</span> 分散 variance</h3>
+<ul>
+<li><a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=104">不偏分散</a> (注: <a href="https://www.stat.go.jp/teacher/glossary-ha-hu.html#variance">除数がnの分散</a> とは別) (unbiased variance) \(s^2=\frac{1}{n-1}\sum_{i=1}^n (x_i-\bar{x})^2\)</li>
+<li>R では <code>var()</code></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-6-2">
+<h3 id="6-2"><span class="section-number-3">6.2.</span> 標準偏差 standard deviation</h3>
+<ul>
+<li><a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=104">標準偏差</a> (注: <a href="https://www.stat.go.jp/teacher/glossary-ha-hi.html#standard-deviation">除数がnの標準偏差</a> とは別) (standard deviation) \(s=\sqrt{s^2}\)</li>
+<li>R では <code>sd()</code></li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-7">
+<h2 id="7"><span class="section-number-2">7.</span> Zスコア、標準化得点</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-7-1">
+<h3 id="7-1"><span class="section-number-3">7.1.</span> Zスコア、標準化得点 Z-score</h3>
+<ul>
+<li><a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=79">標準化</a> (standardization)</li>
+<li>Z値, Zスコア, <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=79">標準化得点</a> (Z-score) \(z=\frac{x-\bar{x}}{s}\)</li>
+<li>R では <code>scale()</code></li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-8">
+<h2 id="8"><span class="section-number-2">8.</span> info</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-8-1">
+<h3 id="8-1"><span class="section-number-3">8.1.</span> 目的</h3>
+<ul>
+<li><b>目的</b> 統計学を学ぶ意義の理解。シラバスでは、簡略化した大らかな表現での説明となります。
+<ul>
+<li>2022年度から、高等学校で数学Ⅰ（必履修）に「仮説検定の考え方」、数学Bに「正規分布を用いた区間推定及び仮説検定の方法を理解すること」が導入されます。</li>
+<li><a href="https://www.stat.go.jp/">総務省統計局</a> 社会人向け学習サイト <a href="https://www.stat.go.jp/dss/">データサイエンス・スクール 統計力向上サイト</a>
+<ul>
+<li>やや優しめに設定されている、 <a href="https://www.stat.go.jp/dss/getting/begin01n.htm">初級 -問題-</a> / <a href="https://www.stat.go.jp/dss/getting/mid01n.htm">中級 -問題-</a> / <a href="https://www.stat.go.jp/dss/getting/upper01.html">上級 -問題-</a> がほぼ解けるか確認してください。</li>
+<li><a href="https://www.stat.go.jp/dss/getting/pdf/index.htm">初級 -テキスト-</a> / <a href="https://www.stat.go.jp/dss/getting/pdf/mid.htm">中級 -テキスト-</a> の内容をある程度前提として、 <a href="https://www.stat.go.jp/dss/getting/pdf/upper.htm">上級 -テキスト-</a> 程度の内容を学んでいきます。</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-8-2">
+<h3 id="8-2"><span class="section-number-3">8.2.</span> 中学・高校の関連教材</h3>
+<ul>
+<li>以降、用語のリンク先は <b>主に中学・高校の関連教材</b> です（<a href="https://www.soumu.go.jp/">総務省</a>、掲載終了の場合は<a href="https://warp.da.ndl.go.jp/advancedsearch/#searchCondition_contentCollectUrl">国立国会図書館「インターネット資料収集保存事業（Web Archiving Project）」</a>）。
+<ul>
+<li><a href="https://www.stat.go.jp/naruhodo/index.html">なるほど統計学園</a></li>
+<li><a href="https://www.stat.go.jp/teacher/index.html">統計学習の指導のために先生向け</a> &gt; <a href="https://www.stat.go.jp/teacher/glossary-all.html">基本用語集（全用語）</a> / <a href="https://www.stat.go.jp/teacher/comp-learn-03.html">「高校生のための統計学習教材」</a> / <a href="https://www.stat.go.jp/teacher/comp-learn-04.html">「高等学校における「情報II」のためのデータサイエンス・データ解析入門」</a></li>
+<li><a href="https://www.soumu.go.jp/toukei_toukatsu/info/guide/stkankyo.htm">「高校からの統計・データサイエンス活用～上級編～」</a></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-8-3">
+<h3 id="8-3"><span class="section-number-3">8.3.</span> 到達目標</h3>
+<ul>
+<li><b>到達目標</b> 統計学で学ぶ概要をイメージできる。統計学を学ぶ準備ができる。学びを積み重ねることができる。学びを習慣化できる。</li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-8-4">
+<h3 id="8-4"><span class="section-number-3">8.4.</span> 第1回 概要</h3>
+<ul>
+<li>第1回 概要
+<ul>
+<li><a href="https://www.stat.go.jp/naruhodo/7_shurui/zensu.html">無作為抽出</a>に基づく小さな<a href="https://www.stat.go.jp/naruhodo/7_shurui/zensu.html">標本</a>から、大きな<a href="https://www.stat.go.jp/naruhodo/7_shurui/zensu.html">母集団</a>について、<a href="https://www.stat.go.jp/naruhodo/11_tokusei/index.html">推測</a>します。
+見通しをよくするため、概要では焦点を絞ります。例えば、<a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">標本平均</a>を手がかりとして、<a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">母平均（母集団の平均）</a>を<a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">推定</a>します。</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-8-5">
+<h3 id="8-5"><span class="section-number-3">8.5.</span> 第2,3回 <a href="https://www.stat.go.jp/naruhodo/5_tokucho/index.html">記述統計</a></h3>
+<ul>
+<li>第2,3回 <a href="https://www.stat.go.jp/naruhodo/5_tokucho/index.html">記述統計</a>
+<ul>
+<li><a href="https://www.stat.go.jp/naruhodo/7_shurui/zensu.html">標本</a>の特徴を、<a href="https://www.stat.go.jp/naruhodo/5_tokucho/chushin.html">平均</a>と<a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=104">不偏分散</a>で捉えます(<a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=49">記述統計</a>)。
+平均と分散が分かれば、データのそれぞれの数値を、相対的な値の <a href="https://www.soumu.go.jp/main_content/000608013.pdf#page=7">Z値</a>へ標準化できます。標準正規分布表で <a href="https://www.soumu.go.jp/main_content/000608013.pdf#page=7">Z値</a>から確率が判明することが重要です。</li>
+
+</ul></li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-8-6">
+<h3 id="8-6"><span class="section-number-3">8.6.</span> 第4,5回 <a href="https://www.stat.go.jp/naruhodo/10_tokucho/hukusu.html">相関と回帰</a></h3>
+<ul>
+<li>第4,5回 <a href="https://www.stat.go.jp/naruhodo/10_tokucho/hukusu.html">相関と回帰</a>
+<ul>
+<li>変数同士の関連を調べると、関係の構造も浮かび上がります。標本の相関を手がかりとして、母集団の相関を<a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">推定</a>できます。</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-8-7">
+<h3 id="8-7"><span class="section-number-3">8.7.</span> 第6,7回 <a href="https://www.stat.go.jp/naruhodo/11_tokusei/suisoku.html">確率</a></h3>
+<ul>
+<li>第6,7回 <a href="https://www.stat.go.jp/naruhodo/11_tokusei/suisoku.html">確率</a>
+<ul>
+<li>ものごとの起こりやすさを数値で表し、推測統計学に向けて準備をします。</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-8-8">
+<h3 id="8-8"><span class="section-number-3">8.8.</span> 第8,9回 <a href="https://www.stat.go.jp/naruhodo/11_tokusei/suisoku.html">確率分布</a></h3>
+<ul>
+<li>第8,9回 <a href="https://www.stat.go.jp/naruhodo/11_tokusei/suisoku.html">確率分布</a>
+<ul>
+<li><a href="https://www.stat.go.jp/naruhodo/11_tokusei/suisoku.html">確率</a>を一覧にしたものが確率分布であり、ありふれたことと珍しいことを区別できます。
+自然でも社会でも、多くのことが<a href="https://www.stat.go.jp/naruhodo/11_tokusei/suisoku.html">正規分布</a>に従っています。
+データの数値を平均と分散を用いて <a href="https://www.soumu.go.jp/main_content/000608013.pdf#page=7">Z値</a>へ標準化 し、<a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">標準正規分布表</a>を参照すると、対応する確率が分かります。
+ほとんどの場合 (確率 0.95)、 Z値は <b>-2</b> から <b>+2</b> の範囲に収まると予想できるのです。</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-8-9">
+<h3 id="8-9"><span class="section-number-3">8.9.</span> 第10,11回 <a href="https://www.stat.go.jp/naruhodo/11_tokusei/suisoku.html">標本分布</a></h3>
+<ul>
+<li>第10,11回 <a href="https://www.stat.go.jp/naruhodo/11_tokusei/suisoku.html">標本分布</a>
+<ul>
+<li>標本平均たちの分布を<a href="https://www.stat.go.jp/naruhodo/11_tokusei/suisoku.html">標本分布</a>と呼び、<a href="https://www.stat.go.jp/naruhodo/11_tokusei/suisoku.html">正規分布</a>に従います (<a href="https://www.stat.go.jp/naruhodo/11_tokusei/suisoku.html">中心極限定理</a>)。
+つまり、<a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">母平均</a>の側から見ると、ほとんどの場合(確率 <b>0.95</b> )、 母平均 <b>-2</b> × <a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">標準誤差</a> から 母平均 <b>+2</b> × 標準誤差の範囲で、標本平均 （<a href="https://www.stat.go.jp/naruhodo/11_tokusei/suisoku.html">確率変数</a>）が得られると予想できます。
+（<a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">標準誤差</a>は標本平均の標準偏差で \(\frac{\sigma}{\sqrt{n}}\) ）。</li>
+
+</ul></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-8-10">
+<h3 id="8-10"><span class="section-number-3">8.10.</span> 第12,13回 <a href="https://www.stat.go.jp/naruhodo/11_tokusei/index.html">推定</a></h3>
+<ul>
+<li>第12,13回 <a href="https://www.stat.go.jp/naruhodo/11_tokusei/index.html">推定</a>
+<ul>
+<li>逆に、標本平均の側から見てみます。
+ほとんどの場合(信頼度 <b>0.95</b> )、 標本平均 <b>-2</b> × <a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">標準誤差</a> から 標本平均 <b>+2</b> × <a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">標準誤差</a> の範囲 (<b>95％</b> <a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">信頼区間</a>) に、
+<a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">母平均</a>（定数）があったものと<a href="https://www.stat.go.jp/naruhodo/11_tokusei/index.html">推定</a>できます (<a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">区間推定</a>)。
+こうして、小さな<a href="https://www.stat.go.jp/naruhodo/7_shurui/zensu.html">標本</a>から、大きな<a href="https://www.stat.go.jp/naruhodo/7_shurui/zensu.html">母集団</a>について、<a href="https://www.stat.go.jp/naruhodo/11_tokusei/index.html">推測</a>ができました。
+二つの母平均の差の推定、二つの母比率の差の推定についても、考え方は同じです。</li>
+
+</ul></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-8-11">
+<h3 id="8-11"><span class="section-number-3">8.11.</span> 第14,15回 <a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">仮説</a>の<a href="https://www.stat.go.jp/naruhodo/11_tokusei/index.html">検定</a></h3>
+<ul>
+<li>第14,15回 <a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">仮説</a>の<a href="https://www.stat.go.jp/naruhodo/11_tokusei/index.html">検定</a>
+<ul>
+<li>母平均について<a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">帰無仮説</a>を前提とした上で、 <b>0.05</b> 未満の確率で、極端に稀な値を示す Z値 (<a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">検定統計量Z</a>)が生じた場合、
+<a href="https://www.stat.go.jp/naruhodo/11_tokusei/kentei.html">帰無仮説</a>を棄却し、対立仮説を採択します。
+二つの母平均の差の検定、二つの母比率の差の検定についても、考え方は同じです。
+<a href="https://www.stat.go.jp/naruhodo/7_shurui/zensu.html">母集団</a>についての推定と検定や統計学的な考え方は、<a href="https://www.stat.go.jp/naruhodo/15_episode/index.html#igai">あらゆる分野の研究で必要不可欠</a>です。</li>
+
+</ul></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-8-12">
+<h3 id="8-12"><span class="section-number-3">8.12.</span> R や Python について</h3>
+<ul>
+<li><a href="https://www.r-project.org/">The R Project for Statistical Computing</a></li>
+<li><a href="https://www.stat.go.jp/teacher/r.html">R言語</a></li>
+<li><a href="https://colab.research.google.com/#create=true&amp;language=r">Google Colaboratory で R を使う</a></li>
+<li><a href="https://www.stat.go.jp/teacher/dl/pdf/c4learn/materials/fourth/sankou.pdf">参考　環境構築、ライブラリの紹介、参考文献・推薦図書・データセット(pdf)</a> (R と Python の環境構築)</li>
+<li><a href="https://www.stat.go.jp/teacher/dl/pdf/c4learn/materials/fourth/dai7.pdf">第７章　プログラミングの基本(pdf)</a> (R と Python)</li>
+
+</ul>
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-8-13">
+<h3 id="8-13"><span class="section-number-3">8.13.</span> 用語 統計学</h3>
+<ul>
+<li><a href="https://www.stat.go.jp/teacher/glossary-ha-ho.html#population">母集団</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=49">cf.</a> (population)</li>
+<li><a href="https://www.stat.go.jp/teacher/glossary-ha-hi.html#sample">標本</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=49">cf.</a> (sample)</li>
+
+<li><a href="https://www.stat.go.jp/teacher/glossary-ka-ka.html#probability">確率</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=51">cf.</a> (probability) \(P\{A\} = \frac{n(A)}{n}\)</li>
+<li><a href="https://www.stat.go.jp/teacher/glossary-ma-mu.html#random-sampling">無作為抽出</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=49">cf.</a> (random sampling) <code>sample()</code></li>
+
+<li><a href="https://www.stat.go.jp/teacher/dl/pdf/c3learn/materials/third/dai1.pdf#page=5">記述統計</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=49">cf.</a> (descriptive statistics)</li>
+<li><a href="https://www.stat.go.jp/teacher/dl/pdf/c3learn/materials/third/dai1.pdf#page=30">推測統計</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=50">cf.</a> (inferential statistics)
+<ul>
+<li><a href="https://www.stat.go.jp/teacher/dl/pdf/c3learn/materials/third/dai1.pdf#page=31">統計的推定</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=49">cf.</a> (statistical estimation)</li>
+<li><a href="https://www.stat.go.jp/teacher/dl/pdf/c3learn/materials/third/dai1.pdf#page=31">仮説検定</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=68">cf.</a> (statistical hypothesis testing)</li>
+
+</ul></li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-8-14">
+<h3 id="8-14"><span class="section-number-3">8.14.</span> 用語 探索的データ解析 (EDA: Exploratory Data Analysis)</h3>
+<ul>
+<li><a href="https://www.stat.go.jp/teacher/glossary-ta-to.html#frequency-distribution">度数分布表</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=49">cf.</a> (frequency table) <code>table()</code></li>
+<li><a href="https://www.stat.go.jp/teacher/glossary-sa-sa.html#mode">最頻値・モード</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=104">cf.</a> (Mode)</li>
+<li><a href="https://www.stat.go.jp/teacher/glossary-ha-hi.html#histogram">ヒストグラム</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=29">cf.</a> (histogram) <code>hist()</code></li>
+<li><a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=29">歪度 (わいど)</a> (skewness) <code>e1071::skewness()</code></li>
+<li><a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=29">尖度 (せんど)</a> (kurtosis) <code>e1071::kurtosis()</code></li>
+<li><a href="https://www.stat.go.jp/teacher/glossary-ha-ha.html#box-and-whisker-plot">箱ひげ図・ボックスプロット</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=14">cf.</a> (boxplot) <code>boxplot()</code></li>
+<li><a href="https://www.stat.go.jp/teacher/glossary-ta-ti.html#median">中央値・メディアン</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=19">cf.</a> (Median) <code>median()</code></li>
+<li><a href="https://www.stat.go.jp/teacher/glossary-sa-si.html#quartile-points">四分位数</a> (quartile points)</li>
+<li><a href="https://www.stat.go.jp/teacher/glossary-sa-si.html#quartile-range">四分位範囲</a> (IQR:interquartile range) <code>IQR()</code></li>
+<li><a href="https://www.stat.go.jp/teacher/glossary-ha-ha.html#range">範囲・レンジ</a> (range) <code>range()</code> <code>min()</code> <code>max()</code></li>
+<li><a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=22">要約統計量</a> (summary statistics) <code>summary()</code></li>
+<li>総和記号 (シグマ) (summation) \(\sum\) <code>sum()</code></li>
+<li><a href="https://www.stat.go.jp/teacher/glossary-ha-he.html#average">平均 (エックス・バー)</a> (mean) \(\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i\) <code>mean()</code></li>
+<li><a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=104">不偏分散</a> (注: <a href="https://www.stat.go.jp/teacher/glossary-ha-hu.html#variance">除数がnの分散</a> とは別) (unbiased variance) \(s^2=\frac{1}{n-1}\sum_{i=1}^n (x_i-\bar{x})^2\) <code>var()</code></li>
+<li><a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=104">標準偏差</a> (注: <a href="https://www.stat.go.jp/teacher/glossary-ha-hi.html#standard-deviation">除数がnの標準偏差</a> とは別) (standard deviation) \(s=\sqrt{s^2}\) <code>sd()</code></li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-9">
+<h2 id="9"><span class="section-number-2">9.</span> 文献</h2>
+<table style="font-size: 12pt; line-height: 200%; ">
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="hoel1981">1</a>]
+</td>
+<td class="bibtexitem">
+ポール G.ホーエル.
+ <em>初等統計学 第4版</em>.
+ 培風館, 1981.
+
+</td>
+</tr>
+</table>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/search/search.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom/zoom.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+transition: 'page',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealNotes, RevealSearch, RevealZoom ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+});
+</script>
+</body>
+</html>
