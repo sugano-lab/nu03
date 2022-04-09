@@ -25,7 +25,7 @@
 <h2>&#30446;&#27425;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#/slide-orgf28ea7a">Abstract</a></li>
+<li><a href="#/slide-org5d1eafc">Abstract</a></li>
 <li><a href="#/slide-1">1. ケース、変数、尺度水準</a></li>
 <li><a href="#/slide-2">2. データ・マトリクスと度数分布</a></li>
 <li><a href="#/slide-3">3. グラフ、分布の形</a></li>
@@ -41,15 +41,16 @@
 </section>
 
 <section>
-<section id="slide-orgf28ea7a">
-<h2 id="orgf28ea7a">Abstract</h2>
+<section id="slide-org5d1eafc">
+<h2 id="org5d1eafc">Abstract</h2>
 
 </section>
 </section>
 <section>
-<section id="slide-orgaf456d1">
-<h3 id="orgaf456d1">Abstract</h3>
+<section id="slide-org277c875">
+<h3 id="org277c875">Abstract</h3>
 <ul>
+<li>調査概要は <a href="https://sugano-lab.github.io/nu03/">学生調査2003</a></li>
 <li><b>目的</b> 小さな手がかりから、大きな全体を把握。</li>
 <li><b>到達目標</b> 標本から母集団について推測するため、基本的な統計学用語が分かる。</li>
 <li><b>キーワード</b> 標本平均、標本分散、標準偏差、Z値（Zスコア, 標準化得点）
@@ -66,132 +67,13 @@
 </section>
 </section>
 <section>
-<section id="slide-orgf93001e">
-<h3 id="orgf93001e">数式</h3>
+<section id="slide-org9273156">
+<h3 id="org9273156">数式</h3>
 <ul>
 <li><label><input type="checkbox" id="w02v01in">\(\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i\)</label> <span id="w02v01out"></span><script>function valueChange(event){ if (w02v01in.checked){ w02v01out.innerText = '【mean 平均】';}else{ w02v01out.innerText = ''; }} let w02v01in = document.getElementById('w02v01in'); w02v01in.addEventListener('change', valueChange); let w02v01out = document.getElementById('w02v01out'); </script>
 <li><label><input type="checkbox" id="w02v02in">\(s^2=\frac{1}{n-1}\sum_{i=1}^n (x_i-\bar{x})^2\)</label> <span id="w02v02out"></span><script>function valueChange(event){ if (w02v02in.checked){ w02v02out.innerText = '【variance 分散】';}else{ w02v02out.innerText = ''; }} let w02v02in = document.getElementById('w02v02in'); w02v02in.addEventListener('change', valueChange); let w02v02out = document.getElementById('w02v02out'); </script>
 <li><label><input type="checkbox" id="w02v03in">\(s=\sqrt{s^2}\)</label> <span id="w02v03out"></span><script>function valueChange(event){ if (w02v03in.checked){ w02v03out.innerText = '【standard deviation 標準偏差】';}else{ w02v03out.innerText = ''; }} let w02v03in = document.getElementById('w02v03in'); w02v03in.addEventListener('change', valueChange); let w02v03out = document.getElementById('w02v03out'); </script>
 <li><label><input type="checkbox" id="w02v04in">\(z=\frac{x-\bar{x}}{s}\)</label> <span id="w02v04out"></span><script>function valueChange(event){ if (w02v04in.checked){ w02v04out.innerText = '【Z-score Z値, Zスコア, 標準化得点】';}else{ w02v04out.innerText = ''; }} let w02v04in = document.getElementById('w02v04in'); w02v04in.addEventListener('change', valueChange); let w02v04out = document.getElementById('w02v04out'); </script>
-</ul>
-
-
-</section>
-</section>
-<section>
-<section id="slide-orgf83d5e5">
-<h3 id="orgf83d5e5">調査概要</h3>
-<table id="org48eaa9a" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">&#34920;1:</span> 学生意識調査2003 nu03</caption>
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">項目</th>
-<th scope="col" class="org-left">内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">調査テーマ</td>
-<td class="org-left">ライフスタイル</td>
-</tr>
-
-<tr>
-<td class="org-left">実施時期</td>
-<td class="org-left">2003年</td>
-</tr>
-
-<tr>
-<td class="org-left">対象</td>
-<td class="org-left">母集団が不明瞭</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">主に、たまたま協力が得られた社会学科学生</td>
-</tr>
-
-<tr>
-<td class="org-left">調査方法</td>
-<td class="org-left">質問紙法・自記式調査法</td>
-</tr>
-
-<tr>
-<td class="org-left">標本サイズ</td>
-<td class="org-left">n=153</td>
-</tr>
-
-<tr>
-<td class="org-left">分析環境</td>
-<td class="org-left"><a href="https://ja.wikipedia.org/wiki/SAS_Institute">SAS</a> (実習において <a href="https://ja.wikipedia.org/wiki/SAS_Institute">SAS</a> を利用するようにとの指示を受けた)</td>
-</tr>
-
-<tr>
-<td class="org-left">その他</td>
-<td class="org-left">授業は朝1限指定、授業時PC教室でのみ <a href="https://ja.wikipedia.org/wiki/SAS_Institute">SAS</a> で分析可能</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">時間不足のため <a href="https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E7%AE%A1%E7%90%86%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0">CMS</a> (<a href="https://ja.wikipedia.org/wiki/Plone">Plone</a>, <a href="https://ja.wikipedia.org/wiki/Zope">Zope</a>) 立ち上げ</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">分析結果を共有、レポート作成を遠隔共同作業でしのぐ</td>
-</tr>
-</tbody>
-</table>
-
-
-
-
-
-</section>
-</section>
-<section>
-<section id="slide-orgbe230ed">
-<h3 id="orgbe230ed">注意</h3>
-<ul>
-<li>学生意識調査
-<ul>
-<li>学生目線で関心を持ちそうなこと、身近なことがら</li>
-<li>厳密さや正確さよりも、調査実習のプロセス自体が主目的</li>
-
-</ul></li>
-
-<li>注意
-<ul>
-<li>母集団が不明瞭、確率標本抽出ではない</li>
-<li>推測統計学を適用できる根拠がない</li>
-<li>確率標本抽出だとしたらと仮定、練習として利用</li>
-
-</ul></li>
-
-</ul>
-
-
-
-</section>
-</section>
-<section>
-<section id="slide-org22f47af">
-<h3 id="org22f47af">調査票</h3>
-
-<div id="org49707e1" class="figure">
-<p><img src="images/nu03questionnaire-header-594x304.png" alt="nu03questionnaire-header-594x304.png" width="720" />
-</p>
-<p><span class="figure-number">&#22259;1:  </span>調査票の一部 ( \(\LaTeX\) 組版)</p>
-</div>
-
-<ul>
-<li>A4用紙横レイアウト1枚両面に 2in1 で4ページ分印刷</li>
-
 </ul>
 
 
@@ -300,8 +182,8 @@
 <section>
 <section id="slide-1-5">
 <h3 id="1-5"><span class="section-number-3">1.5.</span> ケースと変数</h3>
-<table id="org3b5f5a6" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">&#34920;2:</span> ケースと変数</caption>
+<table id="org39405df" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">&#34920;1:</span> ケースと変数</caption>
 
 <colgroup>
 <col  class="org-left" />
@@ -365,8 +247,8 @@
 <section>
 <section id="slide-1-6">
 <h3 id="1-6"><span class="section-number-3">1.6.</span> 変数とケース</h3>
-<table id="org953bd2a" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">&#34920;3:</span> 変数とケース</caption>
+<table id="orgdeb82ab" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">&#34920;2:</span> 変数とケース</caption>
 
 <colgroup>
 <col  class="org-left" />
@@ -627,8 +509,8 @@
 <section>
 <section id="slide-2-1">
 <h3 id="2-1"><span class="section-number-3">2.1.</span> データ・マトリクス data matrix</h3>
-<table id="org2cc361d" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">&#34920;4:</span> 数値データ</caption>
+<table id="orgc50abfe" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">&#34920;3:</span> 数値データ</caption>
 
 <colgroup>
 <col  class="org-right" />
@@ -701,8 +583,8 @@
 <section>
 <section id="slide-2-2">
 <h3 id="2-2"><span class="section-number-3">2.2.</span> データのラベル化</h3>
-<table id="org4519956" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">&#34920;5:</span> ラベル化</caption>
+<table id="orgc439ba0" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">&#34920;4:</span> ラベル化</caption>
 
 <colgroup>
 <col  class="org-right" />
@@ -846,10 +728,10 @@ pie(table(nu03$Q01), main = <span style="color: #ffc1c1;">"Q01 &#24615;&#21029; 
 </div>
 
 
-<div id="org381fcf7" class="figure">
+<div id="org1fa6e42" class="figure">
 <p><img src="figures/nu03-bs01-reveal-R-pie-Q01.png" alt="nu03-bs01-reveal-R-pie-Q01.png" width="480" />
 </p>
-<p><span class="figure-number">&#22259;2:  </span>Q01 性別 の円グラフ</p>
+<p><span class="figure-number">&#22259;1:  </span>Q01 性別 の円グラフ</p>
 </div>
 
 
@@ -872,10 +754,10 @@ barplot(table(nu03$Q01), main = <span style="color: #ffc1c1;">"Q01 &#24615;&#210
 </div>
 
 
-<div id="orgf137421" class="figure">
+<div id="org526a5b5" class="figure">
 <p><img src="figures/nu03-bs01-reveal-R-barplot-Q01.png" alt="nu03-bs01-reveal-R-barplot-Q01.png" width="480" />
 </p>
-<p><span class="figure-number">&#22259;3:  </span>Q01 性別 の棒グラフ</p>
+<p><span class="figure-number">&#22259;2:  </span>Q01 性別 の棒グラフ</p>
 </div>
 
 
@@ -1038,10 +920,10 @@ pie(table(nu03$Q07a), main = <span style="color: #ffc1c1;">"Q07a &#26412;&#12434
 </div>
 
 
-<div id="org9c6e69c" class="figure">
+<div id="orgdf2cf20" class="figure">
 <p><img src="figures/nu03-bs01-reveal-R-pie-Q07a.png" alt="nu03-bs01-reveal-R-pie-Q07a.png" width="480" />
 </p>
-<p><span class="figure-number">&#22259;4:  </span>Q07a 本を読む 円グラフ</p>
+<p><span class="figure-number">&#22259;3:  </span>Q07a 本を読む 円グラフ</p>
 </div>
 
 
@@ -1061,10 +943,10 @@ barplot(table(nu03$Q07a), main = <span style="color: #ffc1c1;">"Q07a &#26412;&#1
 </div>
 
 
-<div id="org9c82761" class="figure">
+<div id="org0b09767" class="figure">
 <p><img src="figures/nu03-bs01-reveal-R-barplot-Q07a.png" alt="nu03-bs01-reveal-R-barplot-Q07a.png" width="480" />
 </p>
-<p><span class="figure-number">&#22259;5:  </span>Q07a 本を読む 棒グラフ</p>
+<p><span class="figure-number">&#22259;4:  </span>Q07a 本を読む 棒グラフ</p>
 </div>
 
 
@@ -1076,8 +958,8 @@ barplot(table(nu03$Q07a), main = <span style="color: #ffc1c1;">"Q07a &#26412;&#1
 <section id="slide-3-10">
 <h3 id="3-10"><span class="section-number-3">3.10.</span> 比率尺度 q16 睡眠時間</h3>
 <div style="font-size: 70%;">
-<table id="org65e9f49" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">&#34920;6:</span> データ</caption>
+<table id="org445e073" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">&#34920;5:</span> データ</caption>
 
 <colgroup>
 <col  class="org-right" />
@@ -1155,8 +1037,8 @@ barplot(table(nu03$Q07a), main = <span style="color: #ffc1c1;">"Q07a &#26412;&#1
 
 
 
-<table id="org068e2a3" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">&#34920;7:</span> nu03 データの q16 睡眠時間</caption>
+<table id="org2cb518b" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">&#34920;6:</span> nu03 データの q16 睡眠時間</caption>
 
 <colgroup>
 <col  class="org-left" />
@@ -1231,7 +1113,7 @@ barplot(table(nu03$Q07a), main = <span style="color: #ffc1c1;">"Q07a &#26412;&#1
 </pre>
 </div>
 
-<pre class="example" id="orgdb78ea4">
+<pre class="example" id="org7f2fc9c">
 nu03$q16 : 睡眠時間 
        n  missing distinct     Info     Mean      Gmd      .05      .10      .25      .50      .75 
      152        1       10    0.906    6.257    1.293     4.55     5.00     6.00     6.00     7.00 
@@ -1261,10 +1143,10 @@ hist(nu03$q16, main = <span style="color: #ffc1c1;">"q16 &#30561;&#30496;&#26178
 </div>
 
 
-<div id="orgaceffa2" class="figure">
+<div id="orgdf882c9" class="figure">
 <p><img src="figures/nu03-bs01-reveal-R-hist-q16.png" alt="nu03-bs01-reveal-R-hist-q16.png" width="480" />
 </p>
-<p><span class="figure-number">&#22259;6:  </span>q16 睡眠時間 ヒストグラム</p>
+<p><span class="figure-number">&#22259;5:  </span>q16 睡眠時間 ヒストグラム</p>
 </div>
 
 
@@ -1283,10 +1165,10 @@ boxplot(nu03$q16, main = <span style="color: #ffc1c1;">"q16 &#30561;&#30496;&#26
 </div>
 
 
-<div id="orgb7af4f9" class="figure">
+<div id="orgbda7ce6" class="figure">
 <p><img src="figures/nu03-bs01-reveal-R-boxplot-q16.png" alt="nu03-bs01-reveal-R-boxplot-q16.png" width="480" />
 </p>
-<p><span class="figure-number">&#22259;7:  </span>q16 睡眠時間 の箱ひげ図</p>
+<p><span class="figure-number">&#22259;6:  </span>q16 睡眠時間 の箱ひげ図</p>
 </div>
 
 
@@ -1343,7 +1225,7 @@ boxplot(nu03$q16, main = <span style="color: #ffc1c1;">"q16 &#30561;&#30496;&#26
 </pre>
 </div>
 
-<pre class="example" id="org6f45fe9">
+<pre class="example" id="org73ad5ab">
 性別 
   [1] 男性 男性 男性 男性 女性 女性 女性 男性 男性 男性 男性 男性 女性 男性 女性 女性 男性 男性 男性
  [20] 男性 男性 女性 女性 男性 男性 男性 男性 男性 男性 男性 男性 男性 男性 男性 女性 男性 男性 男性
@@ -1484,7 +1366,7 @@ summary(nu03$q21a)
 <section id="slide-4-4">
 <h3 id="4-4"><span class="section-number-3">4.4.</span> 外れ値</h3>
 <ul>
-<li>箱ひげ図で外れ値を確認</li>
+<li>箱ひげ図で、四分位範囲の 1.5 倍以上離れている <b>外れ値</b> を確認</li>
 
 </ul>
 
@@ -1506,14 +1388,14 @@ summary(nu03$q21a)
 </section>
 <section>
 <section id="slide-4-5">
-<h3 id="4-5"><span class="section-number-3">4.5.</span> <code>boxplot.stats()</code></h3>
+<h3 id="4-5"><span class="section-number-3">4.5.</span> 外れ値を探る</h3>
 <div class="org-src-container">
 
 <pre class="src src-R">boxplot.stats(sort(nu03$q16))
 </pre>
 </div>
 
-<pre class="example" id="org55ea2b1">
+<pre class="example" id="orgef77038">
 $stats
 睡眠時間 
 [1] 5 6 6 7 8
@@ -1557,6 +1439,12 @@ Mean   : 6.32
 3rd Qu.: 7.00  
 Max.   :10.00
 </pre>
+
+
+<ul>
+<li>平均は 6.32 時間あたり</li>
+
+</ul>
 
 
 </section>
@@ -1684,10 +1572,10 @@ IQR(nu03$q16, na.rm = <span style="color: #63b8ff;">TRUE</span>) <span style="co
 </ul>
 
 
-<div id="org8d21203" class="figure">
+<div id="orge0bb84b" class="figure">
 <p><img src="figures/nu03-bs01-reveal-R-boxplot-q16.png" alt="nu03-bs01-reveal-R-boxplot-q16.png" width="240" />
 </p>
-<p><span class="figure-number">&#22259;8:  </span>q16 睡眠時間 の箱ひげ図</p>
+<p><span class="figure-number">&#22259;7:  </span>q16 睡眠時間 の箱ひげ図</p>
 </div>
 
 
@@ -1708,6 +1596,11 @@ IQR(nu03$q16, na.rm = <span style="color: #63b8ff;">TRUE</span>) <span style="co
 <section id="slide-6-1">
 <h3 id="6-1"><span class="section-number-3">6.1.</span> 分散 variance</h3>
 <ul>
+<li>データのすべての情報を考慮して、ばらつきを捉える
+<ul>
+<li>平均を中心として、個々のデータがばらついている度合い</li>
+
+</ul></li>
 <li><a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=104">不偏分散</a> (注: <a href="https://www.stat.go.jp/teacher/glossary-ha-hu.html#variance">除数がnの分散</a> とは別) (unbiased variance) \(s^2=\frac{1}{n-1}\sum_{i=1}^n (x_i-\bar{x})^2\)</li>
 <li>R では <code>var()</code></li>
 
@@ -1734,6 +1627,11 @@ IQR(nu03$q16, na.rm = <span style="color: #63b8ff;">TRUE</span>) <span style="co
 <section id="slide-6-2">
 <h3 id="6-2"><span class="section-number-3">6.2.</span> 標準偏差 standard deviation</h3>
 <ul>
+<li>分散は、二乗した数値 (単位が面積) のため、ばらつきの大小がわかりにくい
+<ul>
+<li>分散の正の平方根をとる (単位が長さ) と、解釈しやすい数値に戻る</li>
+
+</ul></li>
 <li><a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=104">標準偏差</a> (注: <a href="https://www.stat.go.jp/teacher/glossary-ha-hi.html#standard-deviation">除数がnの標準偏差</a> とは別) (standard deviation) \(s=\sqrt{s^2}\)</li>
 <li>R では <code>sd()</code></li>
 
@@ -1766,7 +1664,12 @@ IQR(nu03$q16, na.rm = <span style="color: #63b8ff;">TRUE</span>) <span style="co
 <section id="slide-7-1">
 <h3 id="7-1"><span class="section-number-3">7.1.</span> Zスコア、標準化得点 Z-score</h3>
 <ul>
-<li><a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=79">標準化</a> (standardization)</li>
+<li><a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=79">標準化</a> (standardization)
+<ul>
+<li>標準正規分布表で Z値をチェックすると、その範囲の起こりやすさが分かる</li>
+
+</ul></li>
+
 <li>Z値, Zスコア, <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=79">標準化得点</a> (Z-score) \(z=\frac{x-\bar{x}}{s}\)</li>
 <li>R では <code>scale()</code></li>
 
