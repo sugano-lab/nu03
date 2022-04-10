@@ -9,7 +9,7 @@
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/beige.css" id="theme"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/night.css" id="theme"/>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <base target="_blank" rel="noopener">
 <style>.reveal section {font-size: 80%;}</style>
@@ -25,7 +25,7 @@
 <h2>&#30446;&#27425;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#/slide-org5d1eafc">Abstract</a></li>
+<li><a href="#/slide-org57e4d4c">Abstract</a></li>
 <li><a href="#/slide-1">1. ケース、変数、尺度水準</a></li>
 <li><a href="#/slide-2">2. データ・マトリクスと度数分布</a></li>
 <li><a href="#/slide-3">3. グラフ、分布の形</a></li>
@@ -41,14 +41,14 @@
 </section>
 
 <section>
-<section id="slide-org5d1eafc">
-<h2 id="org5d1eafc">Abstract</h2>
+<section id="slide-org57e4d4c">
+<h2 id="org57e4d4c">Abstract</h2>
 
 </section>
 </section>
 <section>
-<section id="slide-org277c875">
-<h3 id="org277c875">Abstract</h3>
+<section id="slide-org60e451d">
+<h3 id="org60e451d">Abstract</h3>
 <ul>
 <li>調査概要は <a href="https://sugano-lab.github.io/nu03/">学生調査2003</a></li>
 <li><b>目的</b> 小さな手がかりから、大きな全体を把握。</li>
@@ -67,8 +67,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org9273156">
-<h3 id="org9273156">数式</h3>
+<section id="slide-org2572441">
+<h3 id="org2572441">数式</h3>
 <ul>
 <li><label><input type="checkbox" id="w02v01in">\(\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i\)</label> <span id="w02v01out"></span><script>function valueChange(event){ if (w02v01in.checked){ w02v01out.innerText = '【mean 平均】';}else{ w02v01out.innerText = ''; }} let w02v01in = document.getElementById('w02v01in'); w02v01in.addEventListener('change', valueChange); let w02v01out = document.getElementById('w02v01out'); </script>
 <li><label><input type="checkbox" id="w02v02in">\(s^2=\frac{1}{n-1}\sum_{i=1}^n (x_i-\bar{x})^2\)</label> <span id="w02v02out"></span><script>function valueChange(event){ if (w02v02in.checked){ w02v02out.innerText = '【variance 分散】';}else{ w02v02out.innerText = ''; }} let w02v02in = document.getElementById('w02v02in'); w02v02in.addEventListener('change', valueChange); let w02v02out = document.getElementById('w02v02out'); </script>
@@ -182,7 +182,7 @@
 <section>
 <section id="slide-1-5">
 <h3 id="1-5"><span class="section-number-3">1.5.</span> ケースと変数</h3>
-<table id="org39405df" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgd32597b" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">&#34920;1:</span> ケースと変数</caption>
 
 <colgroup>
@@ -247,7 +247,7 @@
 <section>
 <section id="slide-1-6">
 <h3 id="1-6"><span class="section-number-3">1.6.</span> 変数とケース</h3>
-<table id="orgdeb82ab" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org6359730" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">&#34920;2:</span> 変数とケース</caption>
 
 <colgroup>
@@ -509,7 +509,7 @@
 <section>
 <section id="slide-2-1">
 <h3 id="2-1"><span class="section-number-3">2.1.</span> データ・マトリクス data matrix</h3>
-<table id="orgc50abfe" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org6c371d8" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">&#34920;3:</span> 数値データ</caption>
 
 <colgroup>
@@ -583,7 +583,7 @@
 <section>
 <section id="slide-2-2">
 <h3 id="2-2"><span class="section-number-3">2.2.</span> データのラベル化</h3>
-<table id="orgc439ba0" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgc101203" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">&#34920;4:</span> ラベル化</caption>
 
 <colgroup>
@@ -728,7 +728,7 @@ pie(table(nu03$Q01), main = <span style="color: #ffc1c1;">"Q01 &#24615;&#21029; 
 </div>
 
 
-<div id="org1fa6e42" class="figure">
+<div id="orgecd5688" class="figure">
 <p><img src="figures/nu03-bs01-reveal-R-pie-Q01.png" alt="nu03-bs01-reveal-R-pie-Q01.png" width="480" />
 </p>
 <p><span class="figure-number">&#22259;1:  </span>Q01 性別 の円グラフ</p>
@@ -754,7 +754,7 @@ barplot(table(nu03$Q01), main = <span style="color: #ffc1c1;">"Q01 &#24615;&#210
 </div>
 
 
-<div id="org526a5b5" class="figure">
+<div id="org8c17c09" class="figure">
 <p><img src="figures/nu03-bs01-reveal-R-barplot-Q01.png" alt="nu03-bs01-reveal-R-barplot-Q01.png" width="480" />
 </p>
 <p><span class="figure-number">&#22259;2:  </span>Q01 性別 の棒グラフ</p>
@@ -920,7 +920,7 @@ pie(table(nu03$Q07a), main = <span style="color: #ffc1c1;">"Q07a &#26412;&#12434
 </div>
 
 
-<div id="orgdf2cf20" class="figure">
+<div id="org24af96b" class="figure">
 <p><img src="figures/nu03-bs01-reveal-R-pie-Q07a.png" alt="nu03-bs01-reveal-R-pie-Q07a.png" width="480" />
 </p>
 <p><span class="figure-number">&#22259;3:  </span>Q07a 本を読む 円グラフ</p>
@@ -943,7 +943,7 @@ barplot(table(nu03$Q07a), main = <span style="color: #ffc1c1;">"Q07a &#26412;&#1
 </div>
 
 
-<div id="org0b09767" class="figure">
+<div id="org8d79a2d" class="figure">
 <p><img src="figures/nu03-bs01-reveal-R-barplot-Q07a.png" alt="nu03-bs01-reveal-R-barplot-Q07a.png" width="480" />
 </p>
 <p><span class="figure-number">&#22259;4:  </span>Q07a 本を読む 棒グラフ</p>
@@ -958,7 +958,7 @@ barplot(table(nu03$Q07a), main = <span style="color: #ffc1c1;">"Q07a &#26412;&#1
 <section id="slide-3-10">
 <h3 id="3-10"><span class="section-number-3">3.10.</span> 比率尺度 q16 睡眠時間</h3>
 <div style="font-size: 70%;">
-<table id="org445e073" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org36605f9" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">&#34920;5:</span> データ</caption>
 
 <colgroup>
@@ -1037,7 +1037,7 @@ barplot(table(nu03$Q07a), main = <span style="color: #ffc1c1;">"Q07a &#26412;&#1
 
 
 
-<table id="org2cb518b" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org97f36e3" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">&#34920;6:</span> nu03 データの q16 睡眠時間</caption>
 
 <colgroup>
@@ -1113,7 +1113,7 @@ barplot(table(nu03$Q07a), main = <span style="color: #ffc1c1;">"Q07a &#26412;&#1
 </pre>
 </div>
 
-<pre class="example" id="org7f2fc9c">
+<pre class="example" id="org8f4bb33">
 nu03$q16 : 睡眠時間 
        n  missing distinct     Info     Mean      Gmd      .05      .10      .25      .50      .75 
      152        1       10    0.906    6.257    1.293     4.55     5.00     6.00     6.00     7.00 
@@ -1143,7 +1143,7 @@ hist(nu03$q16, main = <span style="color: #ffc1c1;">"q16 &#30561;&#30496;&#26178
 </div>
 
 
-<div id="orgdf882c9" class="figure">
+<div id="orge7b509d" class="figure">
 <p><img src="figures/nu03-bs01-reveal-R-hist-q16.png" alt="nu03-bs01-reveal-R-hist-q16.png" width="480" />
 </p>
 <p><span class="figure-number">&#22259;5:  </span>q16 睡眠時間 ヒストグラム</p>
@@ -1165,7 +1165,7 @@ boxplot(nu03$q16, main = <span style="color: #ffc1c1;">"q16 &#30561;&#30496;&#26
 </div>
 
 
-<div id="orgbda7ce6" class="figure">
+<div id="orgb58052a" class="figure">
 <p><img src="figures/nu03-bs01-reveal-R-boxplot-q16.png" alt="nu03-bs01-reveal-R-boxplot-q16.png" width="480" />
 </p>
 <p><span class="figure-number">&#22259;6:  </span>q16 睡眠時間 の箱ひげ図</p>
@@ -1225,7 +1225,7 @@ boxplot(nu03$q16, main = <span style="color: #ffc1c1;">"q16 &#30561;&#30496;&#26
 </pre>
 </div>
 
-<pre class="example" id="org73ad5ab">
+<pre class="example" id="org719316c">
 性別 
   [1] 男性 男性 男性 男性 女性 女性 女性 男性 男性 男性 男性 男性 女性 男性 女性 女性 男性 男性 男性
  [20] 男性 男性 女性 女性 男性 男性 男性 男性 男性 男性 男性 男性 男性 男性 男性 女性 男性 男性 男性
@@ -1395,7 +1395,7 @@ summary(nu03$q21a)
 </pre>
 </div>
 
-<pre class="example" id="orgef77038">
+<pre class="example" id="orgd9cf650">
 $stats
 睡眠時間 
 [1] 5 6 6 7 8
@@ -1572,7 +1572,7 @@ IQR(nu03$q16, na.rm = <span style="color: #63b8ff;">TRUE</span>) <span style="co
 </ul>
 
 
-<div id="orge0bb84b" class="figure">
+<div id="orge0444c4" class="figure">
 <p><img src="figures/nu03-bs01-reveal-R-boxplot-q16.png" alt="nu03-bs01-reveal-R-boxplot-q16.png" width="240" />
 </p>
 <p><span class="figure-number">&#22259;7:  </span>q16 睡眠時間 の箱ひげ図</p>
