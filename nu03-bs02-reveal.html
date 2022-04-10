@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<title>学生意識調査 2003</title>
+<meta name="author" content="菅野 剛"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/night.css" id="theme"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<base target="_blank" rel="noopener">
+<script src="lib/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="lib/plotly-binding-4.10.0/plotly.js"></script>
+<script src="lib/typedarray-0.1/typedarray.min.js"></script>
+<script src="lib/jquery-3.5.1/jquery.min.js"></script>
+<link href="lib/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="lib/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="lib/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="lib/plotly-main-2.5.1/plotly-latest.min.js"></script>
+<style>.reveal section {font-size: 80%;}</style>
+<script src="lib/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="lib/plotly-binding-4.10.0/plotly.js"></script>
+<script src="lib/typedarray-0.1/typedarray.min.js"></script>
+<script src="lib/jquery-3.5.1/jquery.min.js"></script>
+<link href="lib/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="lib/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="lib/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="lib/plotly-main-2.5.1/plotly-latest.min.js"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h2 class="title">学生意識調査 2003</h2><em>W2 相関と回帰</em><br><br>菅野 剛<br>
+</section>
+<section id="table-of-contents-section">
+<div id="table-of-contents" role="doc-toc">
+<h2>&#30446;&#27425;</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#/slide-orge43e860">Abstract</a></li>
+<li><a href="#/slide-1">1. クロス集計と散布図</a></li>
+<li><a href="#/slide-2">2. 相関係数</a></li>
+<li><a href="#/slide-3">3. 回帰直線</a></li>
+<li><a href="#/slide-4">4. 回帰式</a></li>
+<li><a href="#/slide-5">5. 回帰、決定係数</a></li>
+<li><a href="#/slide-6">6. 相関と因果</a></li>
+<li><a href="#/slide-7">7. 分割表</a></li>
+<li><a href="#/slide-8">8. 例</a></li>
+<li><a href="#/slide-9">9. info</a></li>
+<li><a href="#/slide-10">10. 文献</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-orge43e860">
+<h2 id="orge43e860">Abstract</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-org390352f">
+<h3 id="org390352f">Abstract</h3>
+<ul>
+<li>調査概要は <a href="https://sugano-lab.github.io/nu03/">学生調査2003</a></li>
+
+<li><b>目的</b> 二つのものごとが共に変わる傾向の把握。</li>
+
+<li><b>到達目標</b> <a href="https://www.stat.go.jp/naruhodo/10_tokucho/hukusu.html">相関と回帰</a>の考え方が分かる。</li>
+
+<li><b>キーワード</b> クロス集計表、散布図、共分散、相関係数、回帰分析
+<ul>
+<li>データに含まれる多くの数値をただ眺めていても、理解は難しいです。
+散布図で見える二変数の関連の強さを数字で表し、データの動きの傾向を捉えます。
+片方の数値がわかると、もう片方の数値もある程度予測でき、便利です。
+変数同士の関連を探ることにより、データの構造が立体的に浮かび上がってきます。
+<a href="https://www.stat.go.jp/teacher/dl/pdf/c3learn/materials/third/dai1.pdf#page=14">相関関係と因果関係</a>を混同しないように注意します。</li>
+<li><a href="https://classroom.google.com/u/0/w/NDc1MDcxMDUyODgy/tc/NDc1MDcwMzY3NzY5">Google Classroom 第04回</a> 「第9章 相関と回帰」 p.191-213</li>
+<li><a href="https://www.youtube.com/playlist?list=PLyLpEs0x9BnkNHZ8RV9BKRnRSjm_l5jDZ">Basic Statistics: Module 2</a> (CC-BY-NC-SA kindly provided by <a href="https://www.youtube.com/channel/UCcjogDXLLQCMtpGvQTNZrOg">Research Methods and Statistics</a>)</li>
+
+</ul></li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-org01a1c74">
+<h3 id="org01a1c74">数式</h3>
+<ul>
+<li><label><input type="checkbox" id="w04v01in">\(SS=\sum_{i=1}^n (x_i-\bar{x})^2\)</label> <span id="w04v01out"></span><script>function valueChange(event){ if (w04v01in.checked){ w04v01out.innerText = '【SS:sum of squares 平方和】';}else{ w04v01out.innerText = ''; }} let w04v01in = document.getElementById('w04v01in'); w04v01in.addEventListener('change', valueChange); let w04v01out = document.getElementById('w04v01out'); </script>
+<li><label><input type="checkbox" id="w04v02in">\(s_{xy}=\frac{1}{n-1} \sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})\)</label> <span id="w04v02out"></span><script>function valueChange(event){ if (w04v02in.checked){ w04v02out.innerText = '【covariance 共分散】';}else{ w04v02out.innerText = ''; }} let w04v02in = document.getElementById('w04v02in'); w04v02in.addEventListener('change', valueChange); let w04v02out = document.getElementById('w04v02out'); </script>
+<li><label><input type="checkbox" id="w04v03in">\(r_{xy}=\frac{s_{xy}}{s_x s_y}\) , \(r_{xy}=\frac{1}{n-1} \sum z_x z_y\)</label> <span id="w04v03out"></span><script>function valueChange(event){ if (w04v03in.checked){ w04v03out.innerText = '【correlation 相関係数】';}else{ w04v03out.innerText = ''; }} let w04v03in = document.getElementById('w04v03in'); w04v03in.addEventListener('change', valueChange); let w04v03out = document.getElementById('w04v03out'); </script>
+<li><label><input type="checkbox" id="w04v04in">\(y=a+bx+\epsilon\)</label> <span id="w04v04out"></span><script>function valueChange(event){ if (w04v04in.checked){ w04v04out.innerText = '【regression analysis 回帰分析】';}else{ w04v04out.innerText = ''; }} let w04v04in = document.getElementById('w04v04in'); w04v04in.addEventListener('change', valueChange); let w04v04out = document.getElementById('w04v04out'); </script>
+<li><label><input type="checkbox" id="w04v06in">\(a=\bar{y}-b{\bar{x}}\)</label> <span id="w04v06out"></span><script>function valueChange(event){ if (w04v06in.checked){ w04v06out.innerText = '【intercept 切片】';}else{ w04v06out.innerText = ''; }} let w04v06in = document.getElementById('w04v06in'); w04v06in.addEventListener('change', valueChange); let w04v06out = document.getElementById('w04v06out'); </script>
+<li><label><input type="checkbox" id="w04v07in">\(b=r \frac{s_y}{s_x}\)</label> <span id="w04v07out"></span><script>function valueChange(event){ if (w04v07in.checked){ w04v07out.innerText = '【slope 傾き】';}else{ w04v07out.innerText = ''; }} let w04v07in = document.getElementById('w04v07in'); w04v07in.addEventListener('change', valueChange); let w04v07out = document.getElementById('w04v07out'); </script>
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-1">
+<h2 id="1"><span class="section-number-2">1.</span> クロス集計と散布図</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-1-1">
+<h3 id="1-1"><span class="section-number-3">1.1.</span> クロス集計 父親巨人好き vs 本人巨人好き</h3>
+<div class="org-src-container">
+
+<pre class="src src-R">tmp <span style="color: #8470ff; font-weight: bold;">&lt;-</span> table(&#29238;&#35242;&#24040;&#20154;&#22909;&#12365; = nu03$R14, &#26412;&#20154;&#24040;&#20154;&#22909;&#12365; = nu03$R13)
+tmp
+</pre>
+</div>
+
+<pre class="example">
+            本人巨人好き
+父親巨人好き 大嫌い やや嫌い やや好き 大好き
+    大嫌い       10        3        2      0
+    やや嫌い      2       21       13      1
+    やや好き      4       12       30      5
+    大好き        2       15       24      7
+</pre>
+
+
+
+
+<table id="orgc7d479d" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">&#34920;1:</span> クロス集計 父親巨人好き vs 本人巨人好き</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">父親＼本人</th>
+<th scope="col" class="org-right">大嫌い</th>
+<th scope="col" class="org-right">やや嫌い</th>
+<th scope="col" class="org-right">やや好き</th>
+<th scope="col" class="org-right">大好き</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">大嫌い</td>
+<td class="org-right">10</td>
+<td class="org-right">3</td>
+<td class="org-right">2</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">やや嫌い</td>
+<td class="org-right">2</td>
+<td class="org-right">21</td>
+<td class="org-right">13</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">やや好き</td>
+<td class="org-right">4</td>
+<td class="org-right">12</td>
+<td class="org-right">30</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">大好き</td>
+<td class="org-right">2</td>
+<td class="org-right">15</td>
+<td class="org-right">24</td>
+<td class="org-right">7</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-1-2">
+<h3 id="1-2"><span class="section-number-3">1.2.</span> クロス集計 3D 棒グラフ</h3>
+
+<div id="org8389ee9" class="figure">
+<p><img src="figures/nu03-bs02-reveal-R-cloud-R13-R14.png" alt="nu03-bs02-reveal-R-cloud-R13-R14.png" width="480" />
+</p>
+<p><span class="figure-number">&#22259;1:  </span>父親巨人好き と 本人巨人好き</p>
+</div>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-1-3">
+<h3 id="1-3"><span class="section-number-3">1.3.</span> クロス集計 周辺度数</h3>
+<div class="org-src-container">
+
+<pre class="src src-R">addmargins(tmp) <span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">addmargins() &#12391;&#21608;&#36794;&#24230;&#25968;&#12434;&#35336;&#31639;</span>
+</pre>
+</div>
+
+<pre class="example">
+            本人巨人好き
+父親巨人好き 大嫌い やや嫌い やや好き 大好き Sum
+    大嫌い       10        3        2      0  15
+    やや嫌い      2       21       13      1  37
+    やや好き      4       12       30      5  51
+    大好き        2       15       24      7  48
+    Sum          18       51       69     13 151
+</pre>
+
+
+
+
+<table id="orge55c624" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">&#34920;2:</span> クロス集計 父親巨人好き vs 本人巨人好き</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">父親＼本人</th>
+<th scope="col" class="org-right">大嫌い</th>
+<th scope="col" class="org-right">やや嫌い</th>
+<th scope="col" class="org-right">やや好き</th>
+<th scope="col" class="org-right">大好き</th>
+<th scope="col" class="org-left">合計 Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">大嫌い</td>
+<td class="org-right">10</td>
+<td class="org-right">3</td>
+<td class="org-right">2</td>
+<td class="org-right">0</td>
+<td class="org-left"><b>15</b></td>
+</tr>
+
+<tr>
+<td class="org-left">やや嫌い</td>
+<td class="org-right">2</td>
+<td class="org-right">21</td>
+<td class="org-right">13</td>
+<td class="org-right">1</td>
+<td class="org-left"><b>37</b></td>
+</tr>
+
+<tr>
+<td class="org-left">やや好き</td>
+<td class="org-right">4</td>
+<td class="org-right">12</td>
+<td class="org-right">30</td>
+<td class="org-right">5</td>
+<td class="org-left"><b>51</b></td>
+</tr>
+
+<tr>
+<td class="org-left">大好き</td>
+<td class="org-right">2</td>
+<td class="org-right">15</td>
+<td class="org-right">24</td>
+<td class="org-right">7</td>
+<td class="org-left"><b>48</b></td>
+</tr>
+
+<tr>
+<td class="org-left">合計 Sum</td>
+<td class="org-right"><b>18</b></td>
+<td class="org-right"><b>51</b></td>
+<td class="org-right"><b>69</b></td>
+<td class="org-right"><b>13</b></td>
+<td class="org-left"><b>151</b></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-1-4">
+<h3 id="1-4"><span class="section-number-3">1.4.</span> クロス集計 行％</h3>
+<div class="org-src-container">
+
+<pre class="src src-R">prop.table(tmp, 1)
+</pre>
+</div>
+
+<pre class="example">
+            本人巨人好き
+父親巨人好き     大嫌い   やや嫌い   やや好き     大好き
+    大嫌い   0.66666667 0.20000000 0.13333333 0.00000000
+    やや嫌い 0.05405405 0.56756757 0.35135135 0.02702703
+    やや好き 0.07843137 0.23529412 0.58823529 0.09803922
+    大好き   0.04166667 0.31250000 0.50000000 0.14583333
+</pre>
+
+
+
+<div class="org-src-container">
+
+<pre class="src src-R">round(prop.table(tmp, 1), 2) <span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">round() &#12391;&#23567;&#25968;&#28857;&#20197;&#19979;2&#26689;&#12395;&#38480;&#23450;</span>
+</pre>
+</div>
+
+<pre class="example">
+            本人巨人好き
+父親巨人好き 大嫌い やや嫌い やや好き 大好き
+    大嫌い     0.67     0.20     0.13   0.00
+    やや嫌い   0.05     0.57     0.35   0.03
+    やや好き   0.08     0.24     0.59   0.10
+    大好き     0.04     0.31     0.50   0.15
+</pre>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-1-5">
+<h3 id="1-5"><span class="section-number-3">1.5.</span> 散布図 父親巨人好き vs 本人巨人好き</h3>
+<div class="org-src-container">
+
+<pre class="src src-R"><span style="color: #8470ff; font-weight: bold;">par</span>(family = <span style="color: #ffc1c1;">"HiraKakuProN-W3"</span>) <span style="color: #fa8072;">## </span><span style="color: #ff7f24; font-style: italic;">&#8592; Windows&#12391;&#12399;&#23455;&#34892;&#12375;&#12394;&#12356;</span>
+plot(nu03$r14, nu03$r13,
+     main = <span style="color: #ffc1c1;">"&#25955;&#24067;&#22259; &#29238;&#35242;&#24040;&#20154;&#22909;&#12365;&#12392;&#26412;&#20154;&#24040;&#20154;&#22909;&#12365;"</span>,
+     xlab = <span style="color: #ffc1c1;">"&#29238;&#35242;&#24040;&#20154;&#22909;&#12365;"</span>, ylab = <span style="color: #ffc1c1;">"&#26412;&#20154;&#24040;&#20154;&#22909;&#12365;"</span>)
+</pre>
+</div>
+
+
+<div id="org8c47a8d" class="figure">
+<p><img src="figures/nu03-bs02-reveal-R-plot-R14-R13-01.png" alt="nu03-bs02-reveal-R-plot-R14-R13-01.png" width="480" />
+</p>
+<p><span class="figure-number">&#22259;2:  </span>散布図 父親巨人好きと本人巨人好き</p>
+</div>
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-1-6">
+<h3 id="1-6"><span class="section-number-3">1.6.</span> 散布図 jitter</h3>
+<div class="org-src-container">
+
+<pre class="src src-R"><span style="color: #8470ff; font-weight: bold;">par</span>(family = <span style="color: #ffc1c1;">"HiraKakuProN-W3"</span>) <span style="color: #fa8072;">## </span><span style="color: #ff7f24; font-style: italic;">&#8592; Windows&#12391;&#12399;&#23455;&#34892;&#12375;&#12394;&#12356;</span>
+plot(jitter(nu03$r14), jitter(nu03$r13),
+     main = <span style="color: #ffc1c1;">"&#25955;&#24067;&#22259; &#29238;&#35242;&#24040;&#20154;&#22909;&#12365;&#12392;&#26412;&#20154;&#24040;&#20154;&#22909;&#12365; (jitter)"</span>,
+     xlab = <span style="color: #ffc1c1;">"&#29238;&#35242;&#24040;&#20154;&#22909;&#12365;"</span>, ylab = <span style="color: #ffc1c1;">"&#26412;&#20154;&#24040;&#20154;&#22909;&#12365;"</span>)
+</pre>
+</div>
+
+
+<div id="org6c61cb9" class="figure">
+<p><img src="figures/nu03-bs02-reveal-R-plot-R14-R13-02.png" alt="nu03-bs02-reveal-R-plot-R14-R13-02.png" width="480" />
+</p>
+<p><span class="figure-number">&#22259;3:  </span>散布図 父親巨人好きと本人巨人好き</p>
+</div>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2.</span> 相関係数</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-2-1">
+<h3 id="2-1"><span class="section-number-3">2.1.</span> 相関係数 父親巨人好き vs 本人巨人好き</h3>
+<div class="org-src-container">
+
+<pre class="src src-R">cor(nu03$r14, nu03$r13) <span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">&#27424;&#28204;&#20516; NA &#12364;&#12354;&#12427;&#12392;&#35336;&#31639;&#19981;&#21487;</span>
+</pre>
+</div>
+
+<pre class="example">
+[1] NA
+</pre>
+
+
+
+<div class="org-src-container">
+
+<pre class="src src-R">cor(nu03$r14, nu03$r13, use = <span style="color: #ffc1c1;">"pairwise"</span>) <span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">&#12506;&#12450;&#12527;&#12452;&#12474; (&#12506;&#12450;&#12364;&#25539;&#12387;&#12390;&#12356;&#12427;) &#12391;&#35336;&#31639;</span>
+</pre>
+</div>
+
+<pre class="example">
+[1] 0.4082542
+</pre>
+
+
+
+<ul>
+<li>ピアソンの積率相関係数 \(r_{xy} = \frac{s_{xy}}{s_x s_y} = 0.41\)</li>
+
+<li>共分散 \(s_{xy} = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})\)</li>
+
+<li>分散 \(s_x^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2\)</li>
+<li>標準偏差 \(s_x = \sqrt{s_x^2}\)</li>
+
+<li>分散 \(s_y^2 = \frac{1}{n-1} \sum_{i=1}^n (y_i - \bar{y})^2\)</li>
+<li>標準偏差 \(s_y = \sqrt{s_y^2}\)</li>
+
+</ul>
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-2-2">
+<h3 id="2-2"><span class="section-number-3">2.2.</span> 相関係数 父親巨人好き vs 本人巨人好き</h3>
+<ul>
+<li>ピアソンの積率相関係数 = 0.41</li>
+
+</ul>
+
+
+<div id="org0d898f5" class="figure">
+<p><img src="figures/nu03-bs02-reveal-R-plot-R14-R13-02.png" alt="nu03-bs02-reveal-R-plot-R14-R13-02.png" width="240" />
+</p>
+<p><span class="figure-number">&#22259;4:  </span>散布図 父親巨人好きと本人巨人好き</p>
+</div>
+
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3.</span> 回帰直線</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-3-1">
+<h3 id="3-1"><span class="section-number-3">3.1.</span> 回帰直線</h3>
+
+<div id="orgd332fd1" class="figure">
+<p><img src="figures/nu03-bs02-reveal-R-plot-lm-R14-R13-02.png" alt="nu03-bs02-reveal-R-plot-lm-R14-R13-02.png" width="480" />
+</p>
+<p><span class="figure-number">&#22259;5:  </span>散布図 父親巨人好きと本人巨人好き</p>
+</div>
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4.</span> 回帰式</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-4-1">
+<h3 id="4-1"><span class="section-number-3">4.1.</span> 回帰式</h3>
+<div class="org-src-container">
+
+<pre class="src src-R">lm(r13 ~ r14, data = nu03)
+</pre>
+</div>
+
+<pre class="example">
+
+Call:
+lm(formula = r13 ~ r14, data = nu03)
+
+Coefficients:
+(Intercept)          r14  
+     1.5287       0.3414
+</pre>
+
+
+
+<ul>
+<li><code>formula = r13 ~ r14</code></li>
+
+<li>本人巨人好き = 切片 + 傾き * 父親巨人好き
+<ul>
+<li>切片 (Intercept) 1.5287</li>
+<li>傾き 0.3414</li>
+
+</ul></li>
+
+<li>本人巨人好き = 1.5287 + 0.3414 * 父親巨人好き</li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5.</span> 回帰、決定係数</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-5-1">
+<h3 id="5-1"><span class="section-number-3">5.1.</span> 回帰式 summary()</h3>
+<div class="org-src-container">
+
+<pre class="src src-R">summary(lm(r13 ~ r14, data = nu03))
+</pre>
+</div>
+
+<pre class="example" id="orgcee3c41">
+
+Call:
+lm(formula = r13 ~ r14, data = nu03)
+
+Residuals:
+本人巨人好き 
+    Min      1Q  Median      3Q     Max 
+-1.8943 -0.5529  0.1057  0.4471  1.7885 
+
+Coefficients:
+            Estimate Std. Error t value          Pr(&gt;|t|)    
+(Intercept)  1.52865    0.18975   8.056 0.000000000000234 ***
+r14          0.34141    0.06254   5.459 0.000000195495263 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.7469 on 149 degrees of freedom
+  ( 2 個の観測値が欠損のため削除されました )
+Multiple R-squared:  0.1667,	Adjusted R-squared:  0.1611 
+F-statistic:  29.8 on 1 and 149 DF,  p-value: 0.0000001955
+</pre>
+
+
+<ul>
+<li>本人巨人好き = 1.52865 + 0.34141 * 父親巨人好き</li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-5-2">
+<h3 id="5-2"><span class="section-number-3">5.2.</span> 回帰式</h3>
+<table id="org3e85c53" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">&#34920;3:</span> 回帰分析</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Coefficients</th>
+<th scope="col" class="org-right">Estimate</th>
+<th scope="col" class="org-right">Std. Error</th>
+<th scope="col" class="org-right">t value</th>
+<th scope="col" class="org-right"><code>Pr(&gt;｜t｜)</code></th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">係数</th>
+<th scope="col" class="org-right"><b>推定値</b></th>
+<th scope="col" class="org-right"><b>標準誤差</b></th>
+<th scope="col" class="org-right"><b>t値</b></th>
+<th scope="col" class="org-right">有意確率</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">(Intercept)</td>
+<td class="org-right">1.52865</td>
+<td class="org-right">0.18975</td>
+<td class="org-right">8.056</td>
+<td class="org-right">0.000000000000234</td>
+<td class="org-left"><code>***</code></td>
+</tr>
+
+<tr>
+<td class="org-left">父親巨人好き</td>
+<td class="org-right">0.34141</td>
+<td class="org-right">0.06254</td>
+<td class="org-right">5.459</td>
+<td class="org-right">0.000000195495263</td>
+<td class="org-left"><code>***</code></td>
+</tr>
+</tbody>
+</table>
+
+
+<ul>
+<li><code>***</code> <b>0.1％有意</b> , <code>**</code> <b>1％有意</b> , <code>*</code> <b>5％有意</b> , <code>.</code>  <b>10％有意</b> , 印なし <b>非有意</b></li>
+
+<li>本人巨人好き = 1.52865 + 0.34141 * 父親巨人好き</li>
+<li>父親巨人好きは効果なし(帰無仮説)の元で、 0.341 という効果</li>
+<li>0.341 を <b>標準誤差</b> 0.06254 で割ると <b>t値</b> 5.459</li>
+<li>自由度 150-1-1=149 で t値 5.459 が得られる確率は 0.000000195</li>
+<li><b>帰無仮説</b> 父親巨人好きは効果がない、を棄却</li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-5-3">
+<h3 id="5-3"><span class="section-number-3">5.3.</span> 回帰式</h3>
+<pre class="example" id="orgb1a2edb">
+Residual standard error: 0.7469 on 149 degrees of freedom
+  ( 2 個の観測値が欠損のため削除されました )
+Multiple R-squared:  0.1667,	Adjusted R-squared:  0.1611 
+F-statistic:  29.8 on 1 and 149 DF,  p-value: 0.0000001955
+</pre>
+
+
+
+<ul>
+<li><b>残差の標準誤差</b> Residual standard error: 0.7469
+<ul>
+<li><b>自由度</b> 149 degrees of freedom</li>
+
+</ul></li>
+
+<li><b>決定係数</b> Multiple R-squared: 0.1667
+<ul>
+<li><b>修正決定係数</b> Adjusted R-squared: 0.1611</li>
+
+</ul></li>
+
+<li><b>F比</b> F-statistic: 29.8
+<ul>
+<li><b>自由度</b> 1 and 149 DF</li>
+<li><b>p値</b> p-value: 0.0000001955</li>
+
+</ul></li>
+
+</ul>
+
+
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6.</span> 相関と因果</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-6-1">
+<h3 id="6-1"><span class="section-number-3">6.1.</span> 相関と因果</h3>
+<ul>
+<li>相関と因果は、異なる</li>
+
+<li>回帰分析の説明変数と被説明変数の設定は、分析者に委ねられる
+<ul>
+<li>設定をすれば、回帰分析の結果は求まってしまう</li>
+<li>全く見当違いの分析も、計算されてしまう</li>
+
+</ul></li>
+
+<li>回帰分析の結果から、因果関係の向きを特定することは出来ない
+<ul>
+<li>過去の経験、知見、先行研究が重要</li>
+
+</ul></li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-6-2">
+<h3 id="6-2"><span class="section-number-3">6.2.</span> 相関と因果</h3>
+<div class="org-src-container">
+
+<pre class="src src-R">lm(r13 ~ r14, data = nu03)
+</pre>
+</div>
+
+<pre class="example">
+
+Call:
+lm(formula = r13 ~ r14, data = nu03)
+
+Coefficients:
+(Intercept)          r14  
+     1.5287       0.3414
+</pre>
+
+
+<ul>
+<li>父親 → 子供
+<ul>
+<li>父親が巨人を好きだと、子供も巨人を好きになる</li>
+<li>子供巨人好き = 1.5287 + 0.3414 * 父親巨人好き</li>
+
+</ul></li>
+
+</ul>
+
+
+
+<div class="org-src-container">
+
+<pre class="src src-R">lm(r14 ~ r13, data = nu03)
+</pre>
+</div>
+
+<pre class="example">
+
+Call:
+lm(formula = r14 ~ r13, data = nu03)
+
+Coefficients:
+(Intercept)          r13  
+     1.6489       0.4882
+</pre>
+
+
+
+<ul>
+<li>子供 → 父親
+<ul>
+<li>子供が巨人を好きだと、父親も巨人を好きになる</li>
+<li>父親巨人好き = 1.6489 + 0.4882 * 子供巨人好き</li>
+
+</ul></li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-7">
+<h2 id="7"><span class="section-number-2">7.</span> 分割表</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+</section>
+</section>
+<section>
+<section id="slide-7-1">
+<h3 id="7-1"><span class="section-number-3">7.1.</span> 分割表</h3>
+<ul>
+<li>分割表・<a href="https://www.stat.go.jp/naruhodo/12_ppdac/data.html">クロス集計表</a> (contingency table / cross tabulation)
+<ul>
+<li>R では <code>table()</code></li>
+
+</ul></li>
+
+<li>独立性の検定 (test for independence)</li>
+
+<li>クラメールのV係数 (Cramér's V)
+<ul>
+<li>\(V = \sqrt{\frac{\chi^2}{n \cdot \mathrm{min}(r-1,c-1)}}\)</li>
+
+</ul></li>
+
+</ul>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-8">
+<h2 id="8"><span class="section-number-2">8.</span> 例</h2>
+
+
+</section>
+</section>
+<section>
+<section id="slide-9">
+<h2 id="9"><span class="section-number-2">9.</span> info</h2>
+
+
+</section>
+</section>
+<section>
+<section id="slide-9-1">
+<h3 id="9-1"><span class="section-number-3">9.1.</span> 相関係数</h3>
+<ul>
+<li><a href="https://www.stat.go.jp/teacher/glossary-sa-so.html#correlation">相関係数</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=37">cf.</a> (correlation) \(r_{xy}=\frac{s_{xy}}{s_x s_y}\) , \(r_{xy}=\frac{1}{n-1} \sum z_x z_y\)
+<ul>
+<li>R では <code>cor()</code></li>
+
+</ul></li>
+
+<li><a href="https://www.stat.go.jp/teacher/glossary-sa-sa.html#scattering-diagram">散布図</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=42">cf.</a> (scatter plot)
+<ul>
+<li>R では <code>plot()</code></li>
+
+</ul></li>
+
+<li><a href="https://www.stat.go.jp/naruhodo/10_tokucho/hukusu.html">平方和</a> (SS:sum of squares) \(SS=\sum_{i=1}^n (x_i-\bar{x})^2\)</li>
+
+<li>共分散 (<a href="https://www.stat.go.jp/naruhodo/10_tokucho/hukusu.html">分母をnとした場合の共分散</a>) (covariance) \(s_{xy}=\frac{1}{n-1} \sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})\)
+<ul>
+<li>R では <code>cov()</code></li>
+
+</ul></li>
+
+<li>偏相関係数 (partial correlational coefficient) \(r_{xy\cdot z} = \frac{r_{xy}-r_{xz}r_{yz}}{\sqrt{1-r_{xz}^2} \sqrt{1-r_{yz}^2}}\)
+<ul>
+<li>R では <code>ppcor::pcor()</code></li>
+
+</ul></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-9-2">
+<h3 id="9-2"><span class="section-number-3">9.2.</span> 単回帰分析</h3>
+<ul>
+<li><a href="https://www.stat.go.jp/teacher/dl/pdf/c3learn/materials/third/dai1.pdf#page=17">単回帰分析</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=47">cf.</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=114">cf.</a> (regression analysis) \(y=a+bx+\epsilon\)
+<ul>
+<li>R では  <code>lm()</code></li>
+
+</ul></li>
+
+<li><a href="https://www.stat.go.jp/teacher/dl/pdf/c3learn/materials/third/dai1.pdf#page=17">独立変数</a> (independent variable)</li>
+
+<li><a href="https://www.stat.go.jp/teacher/dl/pdf/c3learn/materials/third/dai1.pdf#page=17">従属変数</a> (dependent variable)</li>
+
+<li><a href="https://www.stat.go.jp/naruhodo/10_tokucho/hukusu.html">回帰直線</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=115">cf.</a> (regression line) \(\hat{y}=a+bx\)
+<ul>
+<li>R では <code>abline(lm())</code></li>
+
+</ul></li>
+
+<li><a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=114">切片</a> (intercept) \(a=\bar{y}-b{\bar{x}}\)</li>
+
+<li><a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=114">傾き</a> (slope) \(b=r \frac{s_y}{s_x}\)</li>
+
+<li><a href="https://www.stat.go.jp/teacher/dl/pdf/c3learn/materials/third/dai1.pdf#page=18">決定係数</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=116">cf.</a> (R squared) \(R^2\)
+<ul>
+<li>R では <code>summary(lm())</code></li>
+
+</ul></li>
+
+<li><a href="https://www.stat.go.jp/naruhodo/10_tokucho/hukusu.html">最小2乗法</a> <a href="https://www.soumu.go.jp/main_content/000607858.pdf#page=45">cf.</a> (least squares method)</li>
+
+<li><a href="https://www.stat.go.jp/teacher/dl/pdf/c3learn/materials/third/dai1.pdf#page=14">相関関係と因果関係</a> (correlation and causation)</li>
+
+</ul>
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-10">
+<h2 id="10"><span class="section-number-2">10.</span> 文献</h2>
+<table style="font-size: 12pt; line-height: 200%; ">
+
+<tr valign="top">
+<td align="right" class="bibtexnumber">
+[<a name="hoel1981">1</a>]
+</td>
+<td class="bibtexitem">
+ポール G.ホーエル.
+ <em>初等統計学 第4版</em>.
+ 培風館, 1981.
+
+</td>
+</tr>
+</table>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/search/search.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom/zoom.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+
+transition: 'page',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealNotes, RevealSearch, RevealZoom ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+});
+</script>
+</body>
+</html>
