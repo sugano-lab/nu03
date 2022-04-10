@@ -41,7 +41,7 @@
 <h2>&#30446;&#27425;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#/slide-orge43e860">Abstract</a></li>
+<li><a href="#/slide-org585dd45">Abstract</a></li>
 <li><a href="#/slide-1">1. クロス集計と散布図</a></li>
 <li><a href="#/slide-2">2. 相関係数</a></li>
 <li><a href="#/slide-3">3. 回帰直線</a></li>
@@ -58,14 +58,14 @@
 </section>
 
 <section>
-<section id="slide-orge43e860">
-<h2 id="orge43e860">Abstract</h2>
+<section id="slide-org585dd45">
+<h2 id="org585dd45">Abstract</h2>
 
 </section>
 </section>
 <section>
-<section id="slide-org390352f">
-<h3 id="org390352f">Abstract</h3>
+<section id="slide-org5758b5a">
+<h3 id="org5758b5a">Abstract</h3>
 <ul>
 <li>調査概要は <a href="https://sugano-lab.github.io/nu03/">学生調査2003</a></li>
 
@@ -80,8 +80,6 @@
 片方の数値がわかると、もう片方の数値もある程度予測でき、便利です。
 変数同士の関連を探ることにより、データの構造が立体的に浮かび上がってきます。
 <a href="https://www.stat.go.jp/teacher/dl/pdf/c3learn/materials/third/dai1.pdf#page=14">相関関係と因果関係</a>を混同しないように注意します。</li>
-<li><a href="https://classroom.google.com/u/0/w/NDc1MDcxMDUyODgy/tc/NDc1MDcwMzY3NzY5">Google Classroom 第04回</a> 「第9章 相関と回帰」 p.191-213</li>
-<li><a href="https://www.youtube.com/playlist?list=PLyLpEs0x9BnkNHZ8RV9BKRnRSjm_l5jDZ">Basic Statistics: Module 2</a> (CC-BY-NC-SA kindly provided by <a href="https://www.youtube.com/channel/UCcjogDXLLQCMtpGvQTNZrOg">Research Methods and Statistics</a>)</li>
 
 </ul></li>
 
@@ -92,8 +90,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org01a1c74">
-<h3 id="org01a1c74">数式</h3>
+<section id="slide-org6aeb758">
+<h3 id="org6aeb758">数式</h3>
 <ul>
 <li><label><input type="checkbox" id="w04v01in">\(SS=\sum_{i=1}^n (x_i-\bar{x})^2\)</label> <span id="w04v01out"></span><script>function valueChange(event){ if (w04v01in.checked){ w04v01out.innerText = '【SS:sum of squares 平方和】';}else{ w04v01out.innerText = ''; }} let w04v01in = document.getElementById('w04v01in'); w04v01in.addEventListener('change', valueChange); let w04v01out = document.getElementById('w04v01out'); </script>
 <li><label><input type="checkbox" id="w04v02in">\(s_{xy}=\frac{1}{n-1} \sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})\)</label> <span id="w04v02out"></span><script>function valueChange(event){ if (w04v02in.checked){ w04v02out.innerText = '【covariance 共分散】';}else{ w04v02out.innerText = ''; }} let w04v02in = document.getElementById('w04v02in'); w04v02in.addEventListener('change', valueChange); let w04v02out = document.getElementById('w04v02out'); </script>
@@ -136,7 +134,7 @@ tmp
 
 
 
-<table id="orgc7d479d" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgfe5efc2" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">&#34920;1:</span> クロス集計 父親巨人好き vs 本人巨人好き</caption>
 
 <colgroup>
@@ -205,7 +203,7 @@ tmp
 <section id="slide-1-2">
 <h3 id="1-2"><span class="section-number-3">1.2.</span> クロス集計 3D 棒グラフ</h3>
 
-<div id="org8389ee9" class="figure">
+<div id="orgeca94f6" class="figure">
 <p><img src="figures/nu03-bs02-reveal-R-cloud-R13-R14.png" alt="nu03-bs02-reveal-R-cloud-R13-R14.png" width="480" />
 </p>
 <p><span class="figure-number">&#22259;1:  </span>父親巨人好き と 本人巨人好き</p>
@@ -237,7 +235,7 @@ tmp
 
 
 
-<table id="orge55c624" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org9d824a3" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">&#34920;2:</span> クロス集計 父親巨人好き vs 本人巨人好き</caption>
 
 <colgroup>
@@ -368,7 +366,7 @@ plot(nu03$r14, nu03$r13,
 </div>
 
 
-<div id="org8c47a8d" class="figure">
+<div id="orgc9e0347" class="figure">
 <p><img src="figures/nu03-bs02-reveal-R-plot-R14-R13-01.png" alt="nu03-bs02-reveal-R-plot-R14-R13-01.png" width="480" />
 </p>
 <p><span class="figure-number">&#22259;2:  </span>散布図 父親巨人好きと本人巨人好き</p>
@@ -393,7 +391,7 @@ plot(jitter(nu03$r14), jitter(nu03$r13),
 </div>
 
 
-<div id="org6c61cb9" class="figure">
+<div id="orgf5510bd" class="figure">
 <p><img src="figures/nu03-bs02-reveal-R-plot-R14-R13-02.png" alt="nu03-bs02-reveal-R-plot-R14-R13-02.png" width="480" />
 </p>
 <p><span class="figure-number">&#22259;3:  </span>散布図 父親巨人好きと本人巨人好き</p>
@@ -464,7 +462,7 @@ plot(jitter(nu03$r14), jitter(nu03$r13),
 </ul>
 
 
-<div id="org0d898f5" class="figure">
+<div id="orgb5e7bab" class="figure">
 <p><img src="figures/nu03-bs02-reveal-R-plot-R14-R13-02.png" alt="nu03-bs02-reveal-R-plot-R14-R13-02.png" width="240" />
 </p>
 <p><span class="figure-number">&#22259;4:  </span>散布図 父親巨人好きと本人巨人好き</p>
@@ -488,7 +486,7 @@ plot(jitter(nu03$r14), jitter(nu03$r13),
 <section id="slide-3-1">
 <h3 id="3-1"><span class="section-number-3">3.1.</span> 回帰直線</h3>
 
-<div id="orgd332fd1" class="figure">
+<div id="org0638235" class="figure">
 <p><img src="figures/nu03-bs02-reveal-R-plot-lm-R14-R13-02.png" alt="nu03-bs02-reveal-R-plot-lm-R14-R13-02.png" width="480" />
 </p>
 <p><span class="figure-number">&#22259;5:  </span>散布図 父親巨人好きと本人巨人好き</p>
@@ -561,7 +559,7 @@ Coefficients:
 </pre>
 </div>
 
-<pre class="example" id="orgcee3c41">
+<pre class="example" id="org106b2e7">
 
 Call:
 lm(formula = r13 ~ r14, data = nu03)
@@ -596,7 +594,7 @@ F-statistic:  29.8 on 1 and 149 DF,  p-value: 0.0000001955
 <section>
 <section id="slide-5-2">
 <h3 id="5-2"><span class="section-number-3">5.2.</span> 回帰式</h3>
-<table id="org3e85c53" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org77728a1" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">&#34920;3:</span> 回帰分析</caption>
 
 <colgroup>
@@ -671,7 +669,7 @@ F-statistic:  29.8 on 1 and 149 DF,  p-value: 0.0000001955
 <section>
 <section id="slide-5-3">
 <h3 id="5-3"><span class="section-number-3">5.3.</span> 回帰式</h3>
-<pre class="example" id="orgb1a2edb">
+<pre class="example" id="org773fa54">
 Residual standard error: 0.7469 on 149 degrees of freedom
   ( 2 個の観測値が欠損のため削除されました )
 Multiple R-squared:  0.1667,	Adjusted R-squared:  0.1611 
