@@ -41,7 +41,7 @@
 <h2>&#30446;&#27425;</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#/slide-org585dd45">Abstract</a></li>
+<li><a href="#/slide-orgdb35171">Abstract</a></li>
 <li><a href="#/slide-1">1. クロス集計と散布図</a></li>
 <li><a href="#/slide-2">2. 相関係数</a></li>
 <li><a href="#/slide-3">3. 回帰直線</a></li>
@@ -58,14 +58,14 @@
 </section>
 
 <section>
-<section id="slide-org585dd45">
-<h2 id="org585dd45">Abstract</h2>
+<section id="slide-orgdb35171">
+<h2 id="orgdb35171">Abstract</h2>
 
 </section>
 </section>
 <section>
-<section id="slide-org5758b5a">
-<h3 id="org5758b5a">Abstract</h3>
+<section id="slide-org3a21ceb">
+<h3 id="org3a21ceb">Abstract</h3>
 <ul>
 <li>調査概要は <a href="https://sugano-lab.github.io/nu03/">学生調査2003</a></li>
 
@@ -90,8 +90,8 @@
 </section>
 </section>
 <section>
-<section id="slide-org6aeb758">
-<h3 id="org6aeb758">数式</h3>
+<section id="slide-orgf0be752">
+<h3 id="orgf0be752">数式</h3>
 <ul>
 <li><label><input type="checkbox" id="w04v01in">\(SS=\sum_{i=1}^n (x_i-\bar{x})^2\)</label> <span id="w04v01out"></span><script>function valueChange(event){ if (w04v01in.checked){ w04v01out.innerText = '【SS:sum of squares 平方和】';}else{ w04v01out.innerText = ''; }} let w04v01in = document.getElementById('w04v01in'); w04v01in.addEventListener('change', valueChange); let w04v01out = document.getElementById('w04v01out'); </script>
 <li><label><input type="checkbox" id="w04v02in">\(s_{xy}=\frac{1}{n-1} \sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})\)</label> <span id="w04v02out"></span><script>function valueChange(event){ if (w04v02in.checked){ w04v02out.innerText = '【covariance 共分散】';}else{ w04v02out.innerText = ''; }} let w04v02in = document.getElementById('w04v02in'); w04v02in.addEventListener('change', valueChange); let w04v02out = document.getElementById('w04v02out'); </script>
@@ -114,7 +114,7 @@
 </section>
 <section>
 <section id="slide-1-1">
-<h3 id="1-1"><span class="section-number-3">1.1.</span> クロス集計 父親巨人好き vs 本人巨人好き</h3>
+<h3 id="1-1"><span class="section-number-3">1.1.</span> クロス集計</h3>
 <div class="org-src-container">
 
 <pre class="src src-R">tmp <span style="color: #8470ff; font-weight: bold;">&lt;-</span> table(&#29238;&#35242;&#24040;&#20154;&#22909;&#12365; = nu03$R14, &#26412;&#20154;&#24040;&#20154;&#22909;&#12365; = nu03$R13)
@@ -134,7 +134,7 @@ tmp
 
 
 
-<table id="orgfe5efc2" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org575da1b" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">&#34920;1:</span> クロス集計 父親巨人好き vs 本人巨人好き</caption>
 
 <colgroup>
@@ -195,19 +195,27 @@ tmp
 
 
 
-
-
 </section>
 </section>
 <section>
 <section id="slide-1-2">
-<h3 id="1-2"><span class="section-number-3">1.2.</span> クロス集計 3D 棒グラフ</h3>
+<h3 id="1-2"><span class="section-number-3">1.2.</span> モザイクプロット</h3>
+<div class="org-src-container">
 
-<div id="orgeca94f6" class="figure">
-<p><img src="figures/nu03-bs02-reveal-R-cloud-R13-R14.png" alt="nu03-bs02-reveal-R-cloud-R13-R14.png" width="480" />
-</p>
-<p><span class="figure-number">&#22259;1:  </span>父親巨人好き と 本人巨人好き</p>
+<pre class="src src-R"><span style="color: #8470ff; font-weight: bold;">par</span>(family = <span style="color: #ffc1c1;">"HiraKakuProN-W3"</span>) <span style="color: #fa8072;">## </span><span style="color: #ff7f24; font-style: italic;">&#8592; Windows&#12391;&#12399;&#23455;&#34892;&#12375;&#12394;&#12356;</span>
+mosaicplot(tmp, las = 1, main = <span style="color: #ffc1c1;">"&#29238;&#35242;&#24040;&#20154;&#22909;&#12365; &#12392; &#26412;&#20154;&#24040;&#20154;&#22909;&#12365;"</span>)
+</pre>
 </div>
+
+
+<div id="orgada5008" class="figure">
+<p><img src="figures/nu03-bs02-reveal-R-mosaicplot-R14-R13.png" alt="nu03-bs02-reveal-R-mosaicplot-R14-R13.png" width="480" />
+</p>
+<p><span class="figure-number">&#22259;1:  </span>モザイクプロット 父親巨人好き と 本人巨人好き</p>
+</div>
+
+
+
 
 
 
@@ -215,7 +223,21 @@ tmp
 </section>
 <section>
 <section id="slide-1-3">
-<h3 id="1-3"><span class="section-number-3">1.3.</span> クロス集計 周辺度数</h3>
+<h3 id="1-3"><span class="section-number-3">1.3.</span> 3D 棒グラフ</h3>
+
+<div id="orgb9f8da8" class="figure">
+<p><img src="figures/nu03-bs02-reveal-R-cloud-R13-R14.png" alt="nu03-bs02-reveal-R-cloud-R13-R14.png" width="480" />
+</p>
+<p><span class="figure-number">&#22259;2:  </span>父親巨人好き と 本人巨人好き</p>
+</div>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-1-4">
+<h3 id="1-4"><span class="section-number-3">1.4.</span> クロス集計 周辺度数</h3>
 <div class="org-src-container">
 
 <pre class="src src-R">addmargins(tmp) <span style="color: #fa8072;"># </span><span style="color: #ff7f24; font-style: italic;">addmargins() &#12391;&#21608;&#36794;&#24230;&#25968;&#12434;&#35336;&#31639;</span>
@@ -235,7 +257,7 @@ tmp
 
 
 
-<table id="org9d824a3" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="org3cda551" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">&#34920;2:</span> クロス集計 父親巨人好き vs 本人巨人好き</caption>
 
 <colgroup>
@@ -315,8 +337,8 @@ tmp
 </section>
 </section>
 <section>
-<section id="slide-1-4">
-<h3 id="1-4"><span class="section-number-3">1.4.</span> クロス集計 行％</h3>
+<section id="slide-1-5">
+<h3 id="1-5"><span class="section-number-3">1.5.</span> クロス集計 行％</h3>
 <div class="org-src-container">
 
 <pre class="src src-R">prop.table(tmp, 1)
@@ -354,8 +376,8 @@ tmp
 </section>
 </section>
 <section>
-<section id="slide-1-5">
-<h3 id="1-5"><span class="section-number-3">1.5.</span> 散布図 父親巨人好き vs 本人巨人好き</h3>
+<section id="slide-1-6">
+<h3 id="1-6"><span class="section-number-3">1.6.</span> 散布図</h3>
 <div class="org-src-container">
 
 <pre class="src src-R"><span style="color: #8470ff; font-weight: bold;">par</span>(family = <span style="color: #ffc1c1;">"HiraKakuProN-W3"</span>) <span style="color: #fa8072;">## </span><span style="color: #ff7f24; font-style: italic;">&#8592; Windows&#12391;&#12399;&#23455;&#34892;&#12375;&#12394;&#12356;</span>
@@ -366,10 +388,10 @@ plot(nu03$r14, nu03$r13,
 </div>
 
 
-<div id="orgc9e0347" class="figure">
+<div id="org7164387" class="figure">
 <p><img src="figures/nu03-bs02-reveal-R-plot-R14-R13-01.png" alt="nu03-bs02-reveal-R-plot-R14-R13-01.png" width="480" />
 </p>
-<p><span class="figure-number">&#22259;2:  </span>散布図 父親巨人好きと本人巨人好き</p>
+<p><span class="figure-number">&#22259;3:  </span>散布図 父親巨人好きと本人巨人好き</p>
 </div>
 
 
@@ -379,8 +401,8 @@ plot(nu03$r14, nu03$r13,
 </section>
 </section>
 <section>
-<section id="slide-1-6">
-<h3 id="1-6"><span class="section-number-3">1.6.</span> 散布図 jitter</h3>
+<section id="slide-1-7">
+<h3 id="1-7"><span class="section-number-3">1.7.</span> 散布図 jitter</h3>
 <div class="org-src-container">
 
 <pre class="src src-R"><span style="color: #8470ff; font-weight: bold;">par</span>(family = <span style="color: #ffc1c1;">"HiraKakuProN-W3"</span>) <span style="color: #fa8072;">## </span><span style="color: #ff7f24; font-style: italic;">&#8592; Windows&#12391;&#12399;&#23455;&#34892;&#12375;&#12394;&#12356;</span>
@@ -391,10 +413,10 @@ plot(jitter(nu03$r14), jitter(nu03$r13),
 </div>
 
 
-<div id="orgf5510bd" class="figure">
+<div id="org38a7a51" class="figure">
 <p><img src="figures/nu03-bs02-reveal-R-plot-R14-R13-02.png" alt="nu03-bs02-reveal-R-plot-R14-R13-02.png" width="480" />
 </p>
-<p><span class="figure-number">&#22259;3:  </span>散布図 父親巨人好きと本人巨人好き</p>
+<p><span class="figure-number">&#22259;4:  </span>散布図 父親巨人好きと本人巨人好き</p>
 </div>
 
 
@@ -462,10 +484,10 @@ plot(jitter(nu03$r14), jitter(nu03$r13),
 </ul>
 
 
-<div id="orgb5e7bab" class="figure">
+<div id="orgb907e98" class="figure">
 <p><img src="figures/nu03-bs02-reveal-R-plot-R14-R13-02.png" alt="nu03-bs02-reveal-R-plot-R14-R13-02.png" width="240" />
 </p>
-<p><span class="figure-number">&#22259;4:  </span>散布図 父親巨人好きと本人巨人好き</p>
+<p><span class="figure-number">&#22259;5:  </span>散布図 父親巨人好きと本人巨人好き</p>
 </div>
 
 
@@ -486,10 +508,10 @@ plot(jitter(nu03$r14), jitter(nu03$r13),
 <section id="slide-3-1">
 <h3 id="3-1"><span class="section-number-3">3.1.</span> 回帰直線</h3>
 
-<div id="org0638235" class="figure">
+<div id="org92a1b4c" class="figure">
 <p><img src="figures/nu03-bs02-reveal-R-plot-lm-R14-R13-02.png" alt="nu03-bs02-reveal-R-plot-lm-R14-R13-02.png" width="480" />
 </p>
-<p><span class="figure-number">&#22259;5:  </span>散布図 父親巨人好きと本人巨人好き</p>
+<p><span class="figure-number">&#22259;6:  </span>散布図 父親巨人好きと本人巨人好き</p>
 </div>
 
 
@@ -559,7 +581,7 @@ Coefficients:
 </pre>
 </div>
 
-<pre class="example" id="org106b2e7">
+<pre class="example" id="org73d5243">
 
 Call:
 lm(formula = r13 ~ r14, data = nu03)
@@ -594,7 +616,7 @@ F-statistic:  29.8 on 1 and 149 DF,  p-value: 0.0000001955
 <section>
 <section id="slide-5-2">
 <h3 id="5-2"><span class="section-number-3">5.2.</span> 回帰式</h3>
-<table id="org77728a1" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<table id="orgecdf516" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">&#34920;3:</span> 回帰分析</caption>
 
 <colgroup>
@@ -669,7 +691,7 @@ F-statistic:  29.8 on 1 and 149 DF,  p-value: 0.0000001955
 <section>
 <section id="slide-5-3">
 <h3 id="5-3"><span class="section-number-3">5.3.</span> 回帰式</h3>
-<pre class="example" id="org773fa54">
+<pre class="example" id="orgf841d97">
 Residual standard error: 0.7469 on 149 degrees of freedom
   ( 2 個の観測値が欠損のため削除されました )
 Multiple R-squared:  0.1667,	Adjusted R-squared:  0.1611 
